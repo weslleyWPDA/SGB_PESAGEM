@@ -1,0 +1,93 @@
+:root {
+    --login: #3e210c;
+    --layout-color: #3e210c;
+    --pesagem-color: #3e210c;
+    --relatorio-color: #3e210c;
+    --produto-color: #3e210c;
+    --fornec-color: #3e210c;
+    --usuario-color: #3e210c;
+    --fazenda-color: #3e210c;
+    --relatorio-color: #3e210c;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    vertical-align: baseline;
+    list-style: none;
+    border: 0;
+    color: black;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.sair-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* icones bootstrap */
+.table-icon:hover {
+    opacity: 0.5;
+    transform: scale(1.08);
+
+    cursor: pointer;
+
+}
+
+table {
+    font-size: 13px !important;
+}
+
+.btns {
+    color: white !important;
+    font-weight: 800;
+    margin: 5px;
+}
+
+.btns:hover {
+    color: white !important;
+    font-weight: 800;
+    transform: scale(1.08);
+    cursor: pointer;
+}
+
+#content {
+    background-color: rgb(255, 255, 255) !important
+}
+
+
+
+/* css dropdown menu */
+.drop.dropdown-toggle {
+    margin: 5px
+}
+
+.dropdown-menu {
+    margin: 2px;
+}
+
+.dropdown-item,
+div.dropdown-item {
+    font-weight: 900 !important;
+    font-size: 11px !important;
+    color: black;
+}
+
+.dropdown-item:hover {
+    background-color: #482a0a !important;
+    color: rgb(255, 255, 255);
+}
+
+.drop {
+    --bs-btn-bg: none !important;
+    --bs-btn-active-bg: #341e06 !important;
+    --bs-btn-hover-bg: #482a0a !important;
+}
+
+.drop:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+/* fimcss dropdown menu */
