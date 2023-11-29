@@ -17,7 +17,6 @@ class Adm_RelatorioCont extends Controller
         $fornecedor = fornecedor::WhereNull('delete')->get();
         $fazenda = Fazenda::WhereNull('delete')->get();
         $produto = produto::WhereNull('delete')->get();
-
         return view('admin.relatorio.relatorio', compact('fornecedor', 'produto', 'fazenda'));
     }
     // =====================================
