@@ -24,7 +24,6 @@
                         <td class="tdtable">
                             <form action="{{ route('usuarios.edit', $registro->id) }}" method="get"
                                 style="display:inline-block">
-                                @csrf
                                 <button class="bi bi-pencil-square table_icon" title="Editar!"
                                     style="background-color:rgba(0,0,0,0);font-size:20px;color:#DAA520">
                                 </button>
