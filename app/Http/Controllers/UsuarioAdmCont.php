@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Fazenda;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -98,7 +99,7 @@ class UsuarioAdmCont extends Controller
                 ->withInput();
         } else {
             if (User::where('id', $id)->update([
-                'name' => $r->name, 'password' => $r->password,
+                'name' => $r->name, 'password' => Hash::make($r->password),
                 'fazenda_id' => $r->fazenda_id, 'admin' =>  $r->admin,
             ])) {
                 toast('Editado com Sucesso!', 'success');

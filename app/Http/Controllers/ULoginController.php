@@ -30,7 +30,7 @@ class ULoginController extends Controller
     public function login_user(Request $r)
     {
         $credentials = $r->only('name', 'password', 'fazenda_id');
-        if (User::where($credentials)) {
+        if (Auth::attempt($credentials)) {
             return redirect()->route('u_inicio');
         } else {
             toast('Usuario ou Senha Invalido', 'error');
