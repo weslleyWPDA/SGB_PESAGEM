@@ -31,21 +31,21 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-    ];
+    // protected $hidden = [
+    //     'password',
+    // ];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'password' => 'hashed',
-    ];
+    // protected $casts = [
+    //     'password' => 'hashed',
+    // ];
 
-    public function fazenda ()
+    public function fazenda()
     {
-        return $this -> hasOne(fazenda::class,'id','fazenda_id');
+        return $this->hasOne(fazenda::class, 'id', 'fazenda_id');
     }
 }

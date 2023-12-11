@@ -28,7 +28,7 @@
             <label style="color:white;text-align:left;width:100%;font-size: 12px">Fazenda:
                 <select class="sel" name="fazenda_id"
                     style="width:100%;text-align:center;color:black;font-weight: bold;height:30px" required>
-                    <option disabled selected value="{{ $usuario->fazenda_id }}">{{ $usuario->fazenda->name }}</option>
+                    <option selected value="{{ $usuario->fazenda->id }}">{{ $usuario->fazenda->name }}</option>
                     @foreach ($fazenda as $faz)
                         <option value="{{ $faz->id }}">{{ $faz->name }}
                         </option>

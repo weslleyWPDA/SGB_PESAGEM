@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fazenda;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,9 +29,8 @@ class ULoginController extends Controller
     //======================================
     public function login_user(Request $r)
     {
-
         $credentials = $r->only('name', 'password', 'fazenda_id');
-        if (Auth::attempt($credentials)) {
+        if (User::where($credentials)) {
             return redirect()->route('u_inicio');
         } else {
             toast('Usuario ou Senha Invalido', 'error');

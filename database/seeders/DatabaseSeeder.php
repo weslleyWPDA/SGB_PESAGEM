@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Fazenda::create([
             'id' => '1',
-            'name' => 'BARRA BONITA',
+            'name' => 'FAZ. BARRA BONITA',
             'proprietario' => 'SIDNEY GASQUES BORDONE',
             'zona' => 'ZONA RURAL',
             'cidade' => "MIRASSOL D OESTE - MT",
@@ -24,15 +24,9 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\User::create([
             'name' => 'ADMIN',
-            'password' => '$2y$10$SOb0z5rWW1rjyg.benufNekgFD7Z752H9xTAMT2WCgXHhoK0/afTK',
+            'password' => 'admin',
             'fazenda_id' => 1,
             'admin' => '1',
-        ]);
-        \App\Models\User::create([
-            'name' => 'WES',
-            'password' => '$2y$10$SOb0z5rWW1rjyg.benufNekgFD7Z752H9xTAMT2WCgXHhoK0/afTK',
-            'fazenda_id' => '1',
-            'admin' => null,
         ]);
         \App\Models\produto::create([
             'name' => 'MILHO',
