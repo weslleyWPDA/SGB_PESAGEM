@@ -1279,17 +1279,17 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.35.0",
-            "version_normalized": "10.35.0.0",
+            "version": "v10.37.1",
+            "version_normalized": "10.37.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "91ec2d92d2f6007e9084fe06438b99c91845da69"
+                "reference": "b41612c58e358655cda1239e18d8851ff8736e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/91ec2d92d2f6007e9084fe06438b99c91845da69",
-                "reference": "91ec2d92d2f6007e9084fe06438b99c91845da69",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b41612c58e358655cda1239e18d8851ff8736e8f",
+                "reference": "b41612c58e358655cda1239e18d8851ff8736e8f",
                 "shasum": ""
             },
             "require": {
@@ -1436,7 +1436,7 @@
                 "symfony/postmark-mailer": "Required to enable support for the Postmark mail transport (^6.2).",
                 "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^2.0)."
             },
-            "time": "2023-12-05T14:50:33+00:00",
+            "time": "2023-12-12T19:03:09+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -8664,17 +8664,17 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v10.11.1",
-            "version_normalized": "10.11.1.0",
+            "version": "v10.11.2",
+            "version_normalized": "10.11.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "6fb8571f9da39b8f256298e98bbcf6dd86900888"
+                "reference": "22e6ddad629a22b5e7959b27828c28cbb21ca763"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/6fb8571f9da39b8f256298e98bbcf6dd86900888",
-                "reference": "6fb8571f9da39b8f256298e98bbcf6dd86900888",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/22e6ddad629a22b5e7959b27828c28cbb21ca763",
+                "reference": "22e6ddad629a22b5e7959b27828c28cbb21ca763",
                 "shasum": ""
             },
             "require": {
@@ -8700,7 +8700,7 @@
                 "yajra/laravel-datatables-fractal": "Plugin for server-side response using Fractal.",
                 "yajra/laravel-datatables-html": "Plugin for server-side HTML builder of dataTables."
             },
-            "time": "2023-11-25T13:00:21+00:00",
+            "time": "2023-12-12T13:39:55+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -8742,7 +8742,7 @@
             ],
             "support": {
                 "issues": "https://github.com/yajra/laravel-datatables/issues",
-                "source": "https://github.com/yajra/laravel-datatables/tree/v10.11.1"
+                "source": "https://github.com/yajra/laravel-datatables/tree/v10.11.2"
             },
             "funding": [
                 {

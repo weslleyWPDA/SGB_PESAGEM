@@ -28,21 +28,5 @@ class DatabaseSeeder extends Seeder
             'fazenda_id' => 1,
             'admin' => '1',
         ]);
-        \App\Models\produto::create([
-            'name' => 'MILHO',
-
-        ]);
-        \App\Models\produto::create([
-            'name' => 'RAÇÃO',
-
-        ]);
-        \App\Models\fornecedor::create([
-            'name' => 'MALAPO',
-
-        ]);
-        \App\Models\fornecedor::create([
-            'name' => 'JOSE CUNHAS',
-
-        ]);
     }
 }

@@ -19,12 +19,10 @@ Route::group(['middleware' => 'UsuarioLogin',], function () {
     Route::resource('finalizado', PesagemFinalCont::class);
     Route::get('/peso/listarajax', [PesagemFinalCont::class, 'said_peso_ajax'])->name('said_peso_ajax');
     Route::post('/reabrir', [PesagemFinalCont::class, 'reabrir'])->name('reabrir');
-
     // relatorio de pesagem /ADM
     Route::get('/relatorio', [Adm_RelatorioCont::class, 'adm_relatorio'])->name('adm_relatorio');
     Route::post('/relatorio/listagem', [Adm_RelatorioCont::class, 'adm_relatorio_ac'])->name('adm_relatorio_ac');
 });
-
 // ADM
 Route::group(['middleware' => 'AdminLogin',], function () {
     // Usuarioa
@@ -36,7 +34,6 @@ Route::group(['middleware' => 'AdminLogin',], function () {
     // produtos
     Route::resource('produtos', ProdutosAdmCont::class);
 });
-
 Route::get('/logout', [ULoginController::class, 'logout'])->name('logout');
 Route::post('/login_user', [ULoginController::class, 'login_user'])->name('login_user');
 Route::get('/', [ULoginController::class, 'login'])->name('login');

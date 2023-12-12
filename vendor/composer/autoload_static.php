@@ -1671,6 +1671,7 @@ class ComposerStaticInitf51cdf6db7ed15e8a3a9e01a0eda989a
         'Illuminate\\Bus\\ChainedBatch' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/ChainedBatch.php',
         'Illuminate\\Bus\\DatabaseBatchRepository' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/DatabaseBatchRepository.php',
         'Illuminate\\Bus\\Dispatcher' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/Dispatcher.php',
+        'Illuminate\\Bus\\DynamoBatchRepository' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/DynamoBatchRepository.php',
         'Illuminate\\Bus\\Events\\BatchDispatched' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/Events/BatchDispatched.php',
         'Illuminate\\Bus\\PendingBatch' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/PendingBatch.php',
         'Illuminate\\Bus\\PrunableBatchRepository' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Bus/PrunableBatchRepository.php',
