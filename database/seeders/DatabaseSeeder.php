@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\User::create([
             'name' => 'ADMIN',
-            'password' => '$2y$10$SOb0z5rWW1rjyg.benufNekgFD7Z752H9xTAMT2WCgXHhoK0/afTK',
+            'password' => '$2y$10$AQC/PNazy7NgSqMLdMDkOOyIU2qMokbFcAic.j8m6E7bHqQSlOeoG',
             'fazenda_id' => 1,
             'admin' => '1',
         ]);

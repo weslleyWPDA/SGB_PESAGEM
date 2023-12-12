@@ -40,7 +40,7 @@
                                                 placeholder="Digite seu Usuario" name="name" required />
                                         </div>
                                         <div class="mb-3">
-                                            <input type="password" class="input-password w-100"
+                                            <input type="password" class="upper input-password w-100"
                                                 placeholder="Digite sua Senha" name="password" required />
                                         </div>
                                         <div class="mb-3">

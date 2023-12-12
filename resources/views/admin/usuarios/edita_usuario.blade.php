@@ -16,7 +16,7 @@
             </label>
             {{-- password --}}
             <label style="color:white;text-align:left;width:100%;font-size: 12px">Senha:
-                <input type="password" style="height:30px;display: block;width:100%; padding-left:5px"
+                <input type="password" class="upper" style="height:30px;display: block;width:100%; padding-left:5px"
                     autocomplete="off" name="password">
             </label>
             {{-- checkbox admin --}}
