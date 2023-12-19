@@ -21,7 +21,13 @@
                         <div class="col-12">
                             <div class="input-group" style="margin:5px">
                                 <input type="text" name="name" autocomplete="off" required minlength="4"
-                                    class=" form-control form-control-sm upper" placeholder="Nome" style="color:black;">
+                                    class=" form-control form-control-sm upper" placeholder="NOME"
+                                    style="color:black;" />
+                            </div>
+                            <div class="input-group" style="margin:5px">
+                                <input type="text" name="cpf_cnpj" autocomplete="off" required
+                                    class=" form-control form-control-sm mascara-cpfcnpj" placeholder="CPF/CNPJ"
+                                    style="color:black;" />
                             </div>
                             {{-- botoes --}}
                             <div class="text-center"
@@ -49,6 +55,7 @@
                     <th style="text-align: center">OPÇOES</th>
                     <th style="text-align: center">ID</th>
                     <th style="text-align: center">NOME</th>
+                    <th style="text-align: center">CPF/CNPJ</th>
                 </tr>
             </thead>
             <tbody>
@@ -82,7 +89,13 @@
                                                             <input type="text" name="name" autocomplete="off"
                                                                 required minlength="4" value="{{ $registro->name }}"
                                                                 class=" form-control form-control-sm upper"
-                                                                placeholder="Nome" style="color:black;">
+                                                                placeholder="NOME" style="color:black;" />
+                                                        </div>
+                                                        <div class="input-group" style="margin:5px">
+                                                            <input type="text" name="cpf_cnpj" autocomplete="off"
+                                                                required value="{{ $registro->cpf_cnpj }}"
+                                                                class=" form-control form-control-sm mascara-cpfcnpj"
+                                                                placeholder="CPF/CNPJ" style="color:black;" />
                                                         </div>
                                                         {{-- botoes --}}
                                                         <div class="text-center"
@@ -114,11 +127,13 @@
                         </td>
                         <td class="tdtable">{{ $registro->id }}</td>
                         <td class="tdtable">{{ $registro->name }}</td>
+                        <td class="tdtable">{{ $registro->cpf_cnpj }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         @push('script')
             <x-datatables.datatables tamanho='50' botoes='null' />
+            <x-scripts.mask_cpfcnpj />
         @endpush
-        </x-layouts.adm_layouts>
+</x-layouts.layouts>

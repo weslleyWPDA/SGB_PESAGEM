@@ -15,10 +15,11 @@
                 <label class="form-label text-start labels">Fornecedor:
                     <select class="sel" style="width: 100%;height: 30px;text-align:center" required
                         name="fornecedor_id">
-                        <option hidden selected value="{{ $dado->fornecedor->id }}">{{ $dado->fornecedor->name }}
+                        <option hidden selected value="{{ $dado->fornecedor->id }}">{{ $dado->fornecedor->cpf_cnpj }} -
+                            {{ $dado->fornecedor->name }}
                         </option>
-                        @foreach ($fornecedor as $faz)
-                            <option value="{{ $faz->id }}">{{ $faz->name }}</option>
+                        @foreach ($fornecedor as $for)
+                            <option value="{{ $for->id }}">{{ $for->cpf_cnpj }} - {{ $for->name }}</option>
                         @endForeach
                     </select>
                 </label>

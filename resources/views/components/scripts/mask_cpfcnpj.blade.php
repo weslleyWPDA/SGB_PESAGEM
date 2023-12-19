@@ -1,12 +1,15 @@
-<script src="{{ URL::asset('/publico/js/jquerymask_cpfcnpj.js') }}"></script>
+<script src="{{ URL::asset('/publico/js/jquery.mask.min.js') }}"></script>
 <script>
-    var options = {
-        onKeyPress: function(cpf, ev, el, op) {
-            var masks = ['000.000.000-000', '00.000.000/0000-00'];
-            $('.cpfOuCnpj').mask((cpf.length > 14) ? masks[1] : masks[0], op);
-        }
-    }
-
-    $('.cpfOuCnpj').length > 11 ? $('.cpfOuCnpj').mask('00.000.000/0000-00', options) : $('.cpfOuCnpj').mask(
-        '000.000.000-00#', options);
+    // jQuery Mask Plugin v1.14.11
+    // https://github.com/igorescobar/jQuery-Mask-Plugin?tab=readme-ov-file
+    // composer require igorescobar/jquery-mask-plugin
+    var cpfMascara = function(val) {
+            return val.replace(/\D/g, '').length > 11 ? '00.000.000/0000-00' : '000.000.000-009';
+        },
+        cpfOptions = {
+            onKeyPress: function(val, e, field, options) {
+                field.mask(cpfMascara.apply({}, arguments), options);
+            }
+        };
+    $('.mascara-cpfcnpj').mask(cpfMascara, cpfOptions);
 </script>

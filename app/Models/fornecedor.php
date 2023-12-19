@@ -11,6 +11,7 @@ class fornecedor extends Model
     protected $table = 'fornecedores';
     protected $fillable = [
         'name',
+        'cpf_cnpj',
         'delete'
     ];
 }

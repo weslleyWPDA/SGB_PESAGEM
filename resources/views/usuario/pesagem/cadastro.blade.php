@@ -15,8 +15,8 @@
                     <select class="sel" style="width: 100%;height: 30px;text-align:center" required
                         name="fornecedor_id">
                         <option hidden selected value="">SELECIONE</option>
-                        @foreach ($fornecedor as $faz)
-                            <option value="{{ $faz->id }}">{{ $faz->name }}</option>
+                        @foreach ($fornecedor as $dado)
+                            <option value="{{ $dado->id }}">{{ $dado->cpf_cnpj }} - {{ $dado->name }}</option>
                         @endForeach
                     </select>
                 </label>

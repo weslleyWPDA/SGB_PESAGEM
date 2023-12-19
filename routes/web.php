@@ -22,6 +22,10 @@ Route::group(['middleware' => 'UsuarioLogin',], function () {
     // relatorio de pesagem /ADM
     Route::get('/relatorio', [Adm_RelatorioCont::class, 'adm_relatorio'])->name('adm_relatorio');
     Route::post('/relatorio/listagem', [Adm_RelatorioCont::class, 'adm_relatorio_ac'])->name('adm_relatorio_ac');
+    // fornecedores
+    Route::resource('fornecedor', FornecedorAdmCont::class);
+    // produtos
+    Route::resource('produtos', ProdutosAdmCont::class);
 });
 // ADM
 Route::group(['middleware' => 'AdminLogin',], function () {
@@ -29,10 +33,6 @@ Route::group(['middleware' => 'AdminLogin',], function () {
     Route::resource('usuarios', UsuarioAdmCont::class);
     //Fazenda
     Route::resource('fazendas', FazendaAdmCont::class);
-    // fornecedores
-    Route::resource('fornecedor', FornecedorAdmCont::class);
-    // produtos
-    Route::resource('produtos', ProdutosAdmCont::class);
 });
 Route::get('/logout', [ULoginController::class, 'logout'])->name('logout');
 Route::post('/login_user', [ULoginController::class, 'login_user'])->name('login_user');

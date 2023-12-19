@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\fornecedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class FornecedorAdmCont extends Controller
 {
@@ -33,9 +32,9 @@ class FornecedorAdmCont extends Controller
     public function store(Request $r)
     {
         $validated = $r->validate([
-            'name' => Rule::unique('fornecedores')->whereNull('delete'),
-        ], [
-            "name.unique" => "Fornecedor já existente!",
+            'name' => ['required'],
+            'cpf_cnpj' => ['required'],
+
         ]);
         if (fornecedor::create($validated)) {
             toast('Cadastrado!', 'success');
@@ -65,9 +64,9 @@ class FornecedorAdmCont extends Controller
     public function update(Request $r, string $id)
     {
         $validator = Validator::make($r->all(), [
-            'name' => Rule::unique('fornecedores')->whereNull('delete')->ignore($id),
-        ], [
-            "name.unique" => "Fornecedor já existente!",
+            'name' => ['required'],
+            'cpf_cnpj' => ['required'],
+
         ]);
 
         if ($validator->fails()) {
@@ -77,6 +76,8 @@ class FornecedorAdmCont extends Controller
         } else {
             if (fornecedor::where('id', $id)->update([
                 'name' => $r->name,
+                'cpf_cnpj' => $r->cpf_cnpj,
+
             ])) {
                 toast('Editado com Sucesso!', 'success');
                 return redirect()->back();

@@ -19,8 +19,10 @@
             <div class="container-fluid d-flex flex-column p-0">
                 <ul class="navbar-nav text-center text-light" id="accordionSidebar" style="text-align: center; ">
                     <li class="nav-item text-center">
-                        <a href="{{ route('u_inicio') }}"><img src="{{ URL::asset('/publico/img/Logo.png') }}"
-                                style="max-width: 70%;height: 100%;padding: 10px;padding-bottom: 10px;"></a>
+                        <a href="{{ route('u_inicio') }}">
+                            <img src="{{ URL::asset('/publico/img/Logo.png') }}"
+                                style="max-width: 60%;padding: 10px;padding-bottom: 10px; margin-top:10px" />
+                        </a>
                         <section class="text-center"
                             style="background: #ffffff;border-style: none;border-color: rgb(0,0,0);font-weight: 900;font-size:10px">
                             <label> {{ Auth::user()->name }}</label>
@@ -44,11 +46,11 @@
                         <x-drop-navbar.drop-navbar label='RELATÓRIOS'>
                             <a class="dropdown-item" href="{{ route('adm_relatorio') }}">Pesagem</a>
                         </x-drop-navbar.drop-navbar>
+                        <x-drop-navbar.drop-navbar label='CADASTRO'>
+                            <a class="dropdown-item" href="{{ route('fornecedor.index') }}">Fornecedores</a>
+                            <a class="dropdown-item" href="{{ route('produtos.index') }}">Produtos</a>
+                        </x-drop-navbar.drop-navbar>
                         <div style="display:{{ Auth::user()->admin == null ? 'none' : null }} ">
-                            <x-drop-navbar.drop-navbar label='CADASTRO'>
-                                <a class="dropdown-item" href="{{ route('fornecedor.index') }}">Fornecedores</a>
-                                <a class="dropdown-item" href="{{ route('produtos.index') }}">Produtos</a>
-                            </x-drop-navbar.drop-navbar>
                             <x-drop-navbar.drop-navbar label='CONFIGURAÇÕES'>
                                 <a class="dropdown-item" href="{{ route('usuarios.index') }}">Usuarios</a>
                                 <a class="dropdown-item" href="{{ route('fazendas.index') }}">Fazendas</a>

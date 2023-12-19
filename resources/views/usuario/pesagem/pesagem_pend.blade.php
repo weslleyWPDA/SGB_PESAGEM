@@ -28,13 +28,13 @@
                         <td class="tdtable">
                             <form action="{{ route('finalizado.edit', $registro->id) }}" method="get"
                                 style="display:inline-block">
-                                <button class="bi bi-truck botoes" title="Saida!"
+                                <button class="bi bi-truck" title="Saida!"
                                     style="color:green;font-size: 20px;background-color:rgba(255, 0, 0, 0);">
                                 </button>
                             </form>
                             <form action="{{ route('pesagem.edit', $registro->id) }}" method="get"
                                 style="display:inline-block">
-                                <button class="bi bi-pencil-square botoes" title="Editar!"
+                                <button class="bi bi-pencil-square" title="Editar!"
                                     style="margin-left:5px;color:rgb(219, 168, 17);font-size: 20px;background-color:rgba(255, 0, 0, 0);">
                                 </button>
                             </form>
