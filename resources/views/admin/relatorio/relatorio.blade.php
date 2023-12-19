@@ -27,7 +27,7 @@
                     name="fornecedor_id">
                     <option selected value="%">TODOS</option>
                     @foreach ($fornecedor as $dados)
-                        <option value="{{ $dados->id }}">{{ $dados->name }}
+                        <option value="{{ $dados->id }}">{{ $dados->cpf_cnpj }} - {{ $dados->name }}
                         </option>
                     @endForeach
                 </select>
@@ -45,13 +45,13 @@
             </label>
             {{-- periodo --}}
             <div style="width: 100%;margin-top:10px">
-                <label style="width: 23%;color:white">Data de Inicio:</label>
-                <label style="color:white">a</label>
-                <label style="width: 23%;color:white">Data de Fim:</label>
+                <label style="width: 48%;color:white">Data de Inicio:</label>
+                <label style="color:white"></label>
+                <label style="width: 48%;color:white">Data de Fim:</label>
             </div>
             <div style="width: 100%">
-                <input type="date" required name="data_entrada" style="width:25%; text-align:center;height:30px">
-                <input type="date" required name="data_saida" style="width: 25%; text-align:center;height:30px">
+                <input type="date" required name="data_entrada" style="width:45%; text-align:center;height:30px">
+                <input type="date" required name="data_saida" style="width: 45%; text-align:center;height:30px">
             </div>
             {{-- botoes --}}
             <div style="width: 100%;background: rgba(255,255,255,0);margin-top: 15px">
