@@ -18,6 +18,7 @@ Route::group(['middleware' => 'UsuarioLogin',], function () {
     // pesagem final
     Route::resource('finalizado', PesagemFinalCont::class);
     Route::get('/peso/listarajax', [PesagemFinalCont::class, 'said_peso_ajax'])->name('said_peso_ajax');
+    // reabrir pesagem
     Route::post('/reabrir', [PesagemFinalCont::class, 'reabrir'])->name('reabrir');
     // relatorio de pesagem /ADM
     Route::get('/relatorio', [Adm_RelatorioCont::class, 'adm_relatorio'])->name('adm_relatorio');

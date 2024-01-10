@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('delete')->nullable()->default(null);
+            $table->foreignId('fazenda_id')->nullable()->constrained('fazendas');
             $table->timestamps();
         });
     }

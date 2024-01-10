@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\fornecedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class FornecedorAdmCont extends Controller
@@ -14,7 +15,9 @@ class FornecedorAdmCont extends Controller
      */
     public function index()
     {
-        $fornecedor = fornecedor::whereNull('delete')->get();
+        $fornecedor = fornecedor::whereNull('delete')
+            ->where('fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
+            ->get();
         return view('admin.fornecedor.listar', compact('fornecedor'));
     }
 
@@ -34,6 +37,7 @@ class FornecedorAdmCont extends Controller
         $validated = $r->validate([
             'name' => ['required'],
             'cpf_cnpj' => ['required'],
+            'fazenda_id' => ['required'],
 
         ]);
         if (fornecedor::create($validated)) {
@@ -66,7 +70,7 @@ class FornecedorAdmCont extends Controller
         $validator = Validator::make($r->all(), [
             'name' => ['required'],
             'cpf_cnpj' => ['required'],
-
+            'fazenda_id' => ['required'],
         ]);
 
         if ($validator->fails()) {
@@ -77,7 +81,7 @@ class FornecedorAdmCont extends Controller
             if (fornecedor::where('id', $id)->update([
                 'name' => $r->name,
                 'cpf_cnpj' => $r->cpf_cnpj,
-
+                'fazenda_id' => $r->fazenda_id,
             ])) {
                 toast('Editado com Sucesso!', 'success');
                 return redirect()->back();

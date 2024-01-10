@@ -11,6 +11,11 @@ class produto extends Model
     protected $table = 'produtos';
     protected $fillable = [
         'name',
-        'delete'
+        'delete',
+        'fazenda_id',
     ];
+    public function fazenda()
+    {
+        return $this->hasOne(Fazenda::class, 'id', 'fazenda_id');
+    }
 }

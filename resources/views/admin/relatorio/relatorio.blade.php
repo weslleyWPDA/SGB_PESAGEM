@@ -27,7 +27,9 @@
                     name="fornecedor_id">
                     <option selected value="%">TODOS</option>
                     @foreach ($fornecedor as $dados)
-                        <option value="{{ $dados->id }}">{{ $dados->cpf_cnpj }} - {{ $dados->name }}
+                        <option value="{{ $dados->id }}">{{ $dados->name }} - {{ $dados->cpf_cnpj }}
+                            {{ Auth::user()->admin > 0 ? '-' : '' }}
+                            {{ Auth::user()->admin == null ? '' : $dados->fazenda->name }}
                         </option>
                     @endForeach
                 </select>
@@ -39,6 +41,8 @@
                     <option selected value="%">TODOS</option>
                     @foreach ($produto as $dados)
                         <option value="{{ $dados->id }}">{{ $dados->name }}
+                            {{ Auth::user()->admin > 0 ? '-' : '' }}
+                            {{ Auth::user()->admin == null ? '' : $dados->fazenda->name }}
                         </option>
                     @endForeach
                 </select>
@@ -67,7 +71,6 @@
         </style>
     </body>
     @push('script')
-        <x-select2.select2 />
-        <x-botoes.js-textoUpper />
+        <x-select2.select2 /><x-botoes.js-textoUpper />
     @endpush
 </x-layouts.layouts>

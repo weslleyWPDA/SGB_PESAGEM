@@ -12,6 +12,11 @@ class fornecedor extends Model
     protected $fillable = [
         'name',
         'cpf_cnpj',
-        'delete'
+        'delete',
+        'fazenda_id',
     ];
+    public function fazenda()
+    {
+        return $this->hasOne(Fazenda::class, 'id', 'fazenda_id');
+    }
 }

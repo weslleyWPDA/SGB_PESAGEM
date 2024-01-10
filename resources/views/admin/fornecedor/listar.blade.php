@@ -29,6 +29,7 @@
                                     class=" form-control form-control-sm mascara-cpfcnpj" placeholder="CPF/CNPJ"
                                     style="color:black;" />
                             </div>
+                            <input hidden name="fazenda_id" value="{{ Auth::user()->fazenda_id }}" />
                             {{-- botoes --}}
                             <div class="text-center"
                                 style="margin-top:10px;width: 100%;padding: 10px;border-radius: 10px;">
@@ -97,6 +98,8 @@
                                                                 class=" form-control form-control-sm mascara-cpfcnpj"
                                                                 placeholder="CPF/CNPJ" style="color:black;" />
                                                         </div>
+                                                        <input hidden name="fazenda_id"
+                                                            value="{{ Auth::user()->fazenda_id }}" />
                                                         {{-- botoes --}}
                                                         <div class="text-center"
                                                             style="margin-top:10px;width: 100%;padding: 10px;border-radius: 10px;">
@@ -126,7 +129,11 @@
                             </form>
                         </td>
                         <td class="tdtable">{{ $registro->id }}</td>
-                        <td class="tdtable">{{ $registro->name }}</td>
+                        <td class="tdtable">{{ $registro->name }}
+                            <a style="font-weight:900;display:{{ Auth::user()->admin == null ? 'none' : null }} ">
+                                - {{ $registro->fazenda->name }}
+                            </a>
+                        </td>
                         <td class="tdtable">{{ $registro->cpf_cnpj }}</td>
                     </tr>
                 @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\produto;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +17,9 @@ class ProdutosAdmCont extends Controller
      */
     public function index()
     {
-        $produto = produto::whereNull('delete')->get();
+        $produto = produto::whereNull('delete')
+            ->where('fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
+            ->get();
         return view('admin.produto.listar', compact('produto'));
     }
 
@@ -34,7 +37,10 @@ class ProdutosAdmCont extends Controller
     public function store(Request $r)
     {
         $validated = $r->validate([
-            'name' => Rule::unique('produtos')->whereNull('delete'),
+            'name' => Rule::unique('produtos')
+                ->where('fazenda_id', '!=', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
+                ->whereNull('delete'),
+            'fazenda_id' => ['required']
         ], [
             "name.unique" => "Produto já existente!",
         ]);
@@ -66,7 +72,10 @@ class ProdutosAdmCont extends Controller
     public function update(Request $r, string $id)
     {
         $validator = Validator::make($r->all(), [
-            'name' => Rule::unique('produtos')->whereNull('delete')->ignore($id),
+            'name' => Rule::unique('produtos')->whereNull('delete')
+                ->where('fazenda_id', '!=', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
+                ->ignore($id),
+            'fazenda_id' => ['required']
         ], [
             "name.unique" => "Produto já existente!",
         ]);
@@ -78,6 +87,7 @@ class ProdutosAdmCont extends Controller
         } else {
             if (produto::where('id', $id)->update([
                 'name' => $r->name,
+                'fazenda_id' => $r->fazenda_id,
             ])) {
                 toast('Editado com Sucesso!', 'success');
                 return redirect()->back();

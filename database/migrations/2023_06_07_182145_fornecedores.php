@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('cpf_cnpj');
             $table->integer('delete')->nullable()->default(null);
+            $table->foreignId('fazenda_id')->nullable()->constrained('fazendas');
             $table->timestamps();
         });
     }
