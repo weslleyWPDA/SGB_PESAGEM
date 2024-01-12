@@ -36,6 +36,7 @@ class Adm_RelatorioCont extends Controller
             'pesagem.peso_entrad as peso_entrad_p',
             'pesagem.peso_saida as peso_saida_p',
             'fazendas.name as faz_name',
+
         )
             ->whereNull('pesagem.delete')
             ->whereNotNull('pesagem.data_saida')
@@ -51,6 +52,7 @@ class Adm_RelatorioCont extends Controller
             ->where('fornecedores.id', 'like', $r->fornecedor_id ?? '%')
             ->whereBetween('pesagem.data_entrad', [$r->data_entrada, $r->data_saida])
             ->get();
+
         return view('admin.relatorio.tabela', compact('data'));
     }
 }

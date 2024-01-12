@@ -18,9 +18,10 @@
                         <th class="text-center">Motorista</th>
                         <th class="text-center">Placa</th>
                         <th class="text-center">Data_Entrada</th>
-                        <th class="text-center">Peso_Entrada</th>
                         <th class="text-center">Data_Saída</th>
+                        <th class="text-center">Peso_Entrada</th>
                         <th class="text-center">Peso_Saída</th>
+                        <th class="text-center">Peso_Líquido</th>
                         <th class="text-center" style="display:{{ Auth::user()->admin == null ? 'none' : null }}">
                             Fazenda</th>
                         <th style="display:none"></th>
@@ -36,9 +37,14 @@
                             <td class="tdtable">{{ $registro->p_motorista }}</td>
                             <td class="tdtable">{{ $registro->p_placa }}</td>
                             <td class="tdtable">{{ date('d/m/Y', strtotime($registro->data_entrad_p)) }}</td>
-                            <td class="tdtable">{{ $registro->peso_entrad_p }}</td>
                             <td class="tdtable">{{ date('d/m/Y', strtotime($registro->data_saida_p)) }}</td>
+                            <td class="tdtable">{{ $registro->peso_entrad_p }}</td>
                             <td class="tdtable">{{ $registro->peso_saida_p }}</td>
+                            <td class="tdtable">
+                                {{ $registro->peso_saida_p - $registro->peso_entrad_p < 0
+                                    ? ($registro->peso_saida_p - $registro->peso_entrad_p) * -1
+                                    : $registro->peso_saida_p - $registro->peso_entrad_p }}
+                            </td>
                             <td class="tdtable" style="display:{{ Auth::user()->admin == null ? 'none' : null }}">
                                 {{ $registro->faz_name }}</td>
                             <td style="display:none"></td>
