@@ -41,8 +41,6 @@
                     <option selected value="%">TODOS</option>
                     @foreach ($produto as $dados)
                         <option value="{{ $dados->id }}">{{ $dados->name }}
-                            {{ Auth::user()->admin > 0 ? '-' : '' }}
-                            {{ Auth::user()->admin == null ? '' : $dados->fazenda->name }}
                         </option>
                     @endForeach
                 </select>

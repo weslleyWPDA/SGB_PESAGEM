@@ -22,6 +22,14 @@ class DatabaseSeeder extends Seeder
             'cidade' => "MIRASSOL D OESTE - MT",
             'cep' => '78280-000',
         ]);
+        \App\Models\Fazenda::create([
+            'id' => '2',
+            'name' => 'FAZ. RIO AZUL',
+            'proprietario' => 'SIDNEY GASQUES BORDONE',
+            'zona' => 'ZONA RURAL',
+            'cidade' => "VILA BELA DA S. TRINDADE - MT",
+            'cep' => '78245-000',
+        ]);
         \App\Models\User::create([
             'name' => 'ADMIN',
             'password' => '$2y$10$AQC/PNazy7NgSqMLdMDkOOyIU2qMokbFcAic.j8m6E7bHqQSlOeoG',

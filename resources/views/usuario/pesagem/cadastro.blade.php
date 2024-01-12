@@ -16,7 +16,8 @@
                         name="fornecedor_id">
                         <option hidden selected value="">SELECIONE</option>
                         @foreach ($fornecedor as $dado)
-                            <option value="{{ $dado->id }}">{{ $dado->name }} - {{ $dado->cpf_cnpj }} -
+                            <option value="{{ $dado->id }}">{{ $dado->name }} - {{ $dado->cpf_cnpj }}
+                                {{ Auth::user()->admin < 1 ? '' : '-' }}
                                 {{ Auth::user()->admin < 1 ? '' : $dado->fazenda->name }}
                             </option>
                         @endForeach
@@ -27,8 +28,7 @@
                         name="produto_id">
                         <option hidden selected value="">SELECIONE</option>
                         @foreach ($produto as $faz)
-                            <option value="{{ $faz->id }}">{{ $faz->name }} -
-                                {{ Auth::user()->admin < 1 ? '' : $dado->fazenda->name }}
+                            <option value="{{ $faz->id }}">{{ $faz->name }}
                             </option>
                         @endForeach
                     </select>

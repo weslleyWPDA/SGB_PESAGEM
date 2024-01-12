@@ -18,9 +18,7 @@ class Adm_RelatorioCont extends Controller
         $fornecedor = fornecedor::WhereNull('delete')
             ->where('fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
             ->get();
-        $produto = produto::WhereNull('delete')
-            ->where('fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
-            ->get();
+        $produto = produto::WhereNull('delete')->get();
         return view('admin.relatorio.relatorio', compact('fornecedor', 'produto', 'fazenda'));
     }
     // =====================================
@@ -54,32 +52,5 @@ class Adm_RelatorioCont extends Controller
             ->whereBetween('pesagem.data_entrad', [$r->data_entrada, $r->data_saida])
             ->get();
         return view('admin.relatorio.tabela', compact('data'));
-    }
-    public function retorno($emitente_input)
-    {
-        // Get the user id
-
-        // Database connection
-
-        if ($emitente_input !== "") {
-
-            // Get corresponding first name and
-            // last name for that user id
-            $query = emitente::select()->where('emitente', 'like', $emitente_input)->first();
-
-            // $row = mysqli_fetch_array($query);
-
-            // Get the first name
-            $emitente_cpfcnpj = $query["cpf_emitente"];
-            $emitente_end = $query["end_emitente"];
-
-            // Get the first name
-        }
-
-        // Store it in a array
-        $result = array("$emitente_cpfcnpj", "$emitente_end");
-        // Send in JSON encoded form
-        $myJSON = json_encode($result);
-        echo $myJSON;
     }
 }

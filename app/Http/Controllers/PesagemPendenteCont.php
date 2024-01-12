@@ -33,9 +33,7 @@ class PesagemPendenteCont extends Controller
         $fornecedor = fornecedor::whereNUll('delete')
             ->where('fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
             ->get();
-        $produto = produto::whereNUll('delete')
-            ->where('fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
-            ->get();
+        $produto = produto::whereNUll('delete')->get();
         return view('usuario.pesagem.cadastro', compact('fornecedor', 'produto',));
     }
 
@@ -83,9 +81,7 @@ class PesagemPendenteCont extends Controller
         $fornecedor = fornecedor::whereNUll('delete')
             ->where('fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
             ->get();
-        $produto = produto::whereNUll('delete')
-            ->where('fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
-            ->get();
+        $produto = produto::whereNUll('delete')->get();
         return view('usuario.pesagem.editar_peso', compact('fornecedor', 'produto', 'dado'));
     }
 

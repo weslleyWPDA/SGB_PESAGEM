@@ -12,10 +12,5 @@ class produto extends Model
     protected $fillable = [
         'name',
         'delete',
-        'fazenda_id',
     ];
-    public function fazenda()
-    {
-        return $this->hasOne(Fazenda::class, 'id', 'fazenda_id');
-    }
 }

@@ -63,7 +63,7 @@
             <div class="d-inline-block d-lg-flex justify-content-lg-center align-items-lg-center mb-3"
                 style="width: 100%;margin-top: -25px;">
                 <label class="form-label text-start"
-                    style="color: rgb(255,255,255);font-size: 15px;width: 80%;margin-left: 10%;margin-right: 10%;">Observação<br />
+                    style="color: rgb(255,255,255);font-size: 11px;width: 80%;margin-left: 10%;margin-right: 10%;">Observação<br />
                     <input name="observacao" required autocomplete="off" class="form-control upper"
                         style="width: 100%;color: rgb(0,0,0);height: 30px;" />
                 </label>
