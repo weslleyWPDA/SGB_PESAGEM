@@ -69,7 +69,9 @@ class PesagemPendenteCont extends Controller
     public function show(string $id)
     {
         $data = pesagem::find($id);
-        return view('usuario.pesagem.pdf', compact('data'));
+        $pesol = $data->peso_entrad - $data->peso_saida;
+        $pesoliquido = $pesol < 0 ? ($pesol) * (-1) : $pesol;
+        return view('usuario.pesagem.pdf', compact('data', 'pesoliquido'));
     }
 
     /**

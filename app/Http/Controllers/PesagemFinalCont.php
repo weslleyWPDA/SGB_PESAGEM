@@ -38,7 +38,9 @@ class PesagemFinalCont extends Controller
     public function show(string $id, Request $r)
     {
         $data = pesagem::find($r->id);
-        return view('usuario.pesagem.pdf', compact('data'));
+        $pesol = $data->peso_entrad - $data->peso_saida;
+        $pesoliquido = $pesol < 0 ? ($pesol) * (-1) : $pesol;
+        return view('usuario.pesagem.pdf', compact('data', 'pesoliquido'));
     }
 
     /**

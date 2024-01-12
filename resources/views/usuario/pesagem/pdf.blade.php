@@ -326,7 +326,7 @@
                         PESO LÍQUIDO</p>
                     <p class="text-center"
                         style="margin-top: -17px;color: rgb(0,0,0);width: 100%;font-weight: bold;font-size: 21PX;border-style: none;">
-                        {{ $data->peso_entrad - $data->peso_saida ?? null }}</p>
+                        {{ $pesoliquido ?? null }}</p>
                 </div>
             </div>
             <div class="d-inline-block float-start d-lg-flex"
