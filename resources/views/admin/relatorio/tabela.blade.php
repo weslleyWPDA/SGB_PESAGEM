@@ -1,4 +1,4 @@
-<x-layouts.layouts>
+<x-layouts.layouts titulo="PESAGEM {{ Auth::user()->fazenda->name }}">
     <nav>
         <x-botoes.botao_href color='gray' label='VOLTAR' link="{{ route('adm_relatorio') }}" />
     </nav>
