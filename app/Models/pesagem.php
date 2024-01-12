@@ -27,7 +27,7 @@ class pesagem extends Model
 
     public function fazenda()
     {
-        return $this->hasOne(fazenda::class, 'id', 'fazenda_id');
+        return $this->hasOne(Fazenda::class, 'id', 'fazenda_id');
     }
     public function user()
     {
