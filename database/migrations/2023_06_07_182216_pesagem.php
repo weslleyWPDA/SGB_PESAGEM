@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('motorista');
             $table->string('placa');
             $table->date('data_entrad');
-            $table->integer('peso_entrad');
+            $table->bigInteger('peso_entrad');
             $table->date('data_saida')->nullable();
-            $table->integer('peso_saida')->nullable();
+            $table->bigInteger('peso_saida')->nullable();
             $table->string('obs')->nullable();
             $table->foreignId('fazenda_id')->nullable()->constrained('fazendas');
             $table->foreignId('user_id')->nullable()->constrained('users');

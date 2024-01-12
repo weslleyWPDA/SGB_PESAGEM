@@ -60,7 +60,7 @@
                         DATA DE SAÍDA: </p>
                     <p class="text-center d-block textos1"
                         style="max-height:30px;margin-top: -17px;color: rgb(0,0,0);width: 221px;border-width: 1px;border-style: solid;border-top-style: none;font-weight: bold;margin-left: 2px;">
-                        {{ date('d/m/Y', strtotime($data->data_said)) ?? null }}</p>
+                        {{ date('d/m/Y', strtotime($data->data_saida)) ?? null }}</p>
                 </div>
                 <div class="d-inline-block" style="margin-top: 0px;margin-left: 6px;height: 49px;">
                     <p class="text-center titulo"
@@ -164,7 +164,7 @@
                         PESO LÍQUIDO</p>
                     <p class="text-center"
                         style="margin-top: -17px;color: rgb(0, 0, 0);width: 100%;font-weight: bold;font-size: 24PX;border-style: none;">
-                        {{ $data->peso_entrad - $data->peso_saida ?? null }}</p>
+                        {{ $pesoliquido ?? null }}</p>
                 </div>
             </div>
             <div class="d-inline-block float-start d-lg-flex"
@@ -222,7 +222,7 @@
                         DATA DE SAÍDA: </p>
                     <p class="text-center d-block textos1"
                         style="max-height:30px;margin-top: -17px;color: rgb(0,0,0);width: 221px;border-width: 1px;border-style: solid;border-top-style: none;font-weight: bold;margin-left: 2px;">
-                        {{ date('d/m/Y', strtotime($data->data_said)) ?? null }}</p>
+                        {{ date('d/m/Y', strtotime($data->data_saida)) ?? null }}</p>
                 </div>
                 <div class="d-inline-block" style="margin-top: 0px;margin-left: 6px;height: 49px;">
                     <p class="text-center titulo"
