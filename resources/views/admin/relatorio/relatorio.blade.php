@@ -45,6 +45,12 @@
                     @endForeach
                 </select>
             </label>
+            {{-- Nota --}}
+            <label style="color:white;text-align:left;width:90%">Nº Nota:
+                <input type="number" class="upper"
+                    style="font-size:15px;height:30px;display: block;width:100%; padding-left:5px" autocomplete="off"
+                    name="nfe">
+            </label>
             {{-- periodo --}}
             <div style="width: 100%;margin-top:10px">
                 <label style="width: 48%;color:white">Data de Inicio:</label>
