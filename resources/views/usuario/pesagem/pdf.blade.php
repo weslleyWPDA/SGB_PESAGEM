@@ -10,10 +10,10 @@
 </head>
 <div class="imprimir">
     <a href="{{ route('u_inicio') }}" style="text-decoration: none">
-        <x-botoes.botoes type='buttom' color='gray' label='VOLTAR' />
+        <button type="button" style="font-weight: 800;" class="btn btn-secondary">VOLTAR</button>
     </a>
     <a href="javascript:;" onclick="window.print();return true">
-        <x-botoes.botoes type='buttom' color='green' label='IMPRIMIR' />
+        <button type="button" style="font-weight: 800;margin:5px;color:white" class="btn btn-success">IMPRIMIR</button>
     </a>
 </div>
 
@@ -343,6 +343,10 @@
     </div>
 </div>
 <style>
+    button:hover {
+        transform: scale(1.1)
+    }
+
     .titulo {
         font-size: 11px !important;
         color: black !important;
@@ -363,11 +367,6 @@
 
     .imprimir {
         margin: 15px;
-
-    }
-
-    .botoes:hover {
-        transform: scale(1.05);
 
     }
 

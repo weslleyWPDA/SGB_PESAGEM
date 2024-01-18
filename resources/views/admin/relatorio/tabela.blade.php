@@ -10,7 +10,7 @@
             </label>
             <table id="datatable_tabela" class=" display compact">
                 <thead>
-                    <tr class="trtable">
+                    <tr>
                         <th class="text-center">Cod.</th>
                         <th class="text-center">Fornec.</th>
                         <th class="text-center">Produto</th>
@@ -40,7 +40,7 @@
                             <td class="tdtable">{{ date('d/m/Y', strtotime($registro->data_saida_p)) }}</td>
                             <td class="tdtable">{{ $registro->peso_entrad_p }}</td>
                             <td class="tdtable">{{ $registro->peso_saida_p }}</td>
-                            <td class="tdtable">{{ $registro->peso_saida_p - $registro->peso_entrad_p }}</td>
+                            <td class="tdtable">{{ $registro->peso_entrad_p - $registro->peso_saida_p }}</td>
                             <td class="tdtable" style="display:{{ Auth::user()->admin == null ? 'none' : null }}">
                                 {{ $registro->faz_name }}</td>
                             <td style="display:none"></td>
