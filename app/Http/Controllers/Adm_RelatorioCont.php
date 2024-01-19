@@ -55,17 +55,9 @@ class Adm_RelatorioCont extends Controller
             ->where('fornecedores.id', 'like', $r->fornecedor_id ?? '%')
             ->whereBetween('pesagem.data_entrad', [$r->data_entrada, $r->data_saida])
             ->get();
-
-        $dado = pesagem::select('peso_entrad', 'peso_saida')
-            ->whereNull('delete')
-            ->whereNotNull('peso_saida')
-            ->whereBetween('data_entrad', [$r->data_entrada, $r->data_saida])->get();
-        $s_peso_entrad = $dado->sum('peso_entrad');
-        $s_peso_saida = $dado->sum('peso_saida');
+        $s_peso_entrad = $data->sum('peso_entrad_p');
+        $s_peso_saida = $data->sum('peso_saida_p');
         $pesoliqtotal = ($s_peso_entrad - $s_peso_saida);
-
-
-
 
         return view('admin.relatorio.tabela', compact('data', 'pesoliqtotal'));
     }
