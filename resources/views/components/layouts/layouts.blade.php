@@ -15,7 +15,7 @@
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
-            style="background:var(--layout-color)">
+            style="background:var(--layout-color);width:200px">
             <div class="container-fluid d-flex flex-column p-0">
                 <ul class="navbar-nav text-center text-light" id="accordionSidebar" style="text-align: center; ">
                     <li class="nav-item text-center">
