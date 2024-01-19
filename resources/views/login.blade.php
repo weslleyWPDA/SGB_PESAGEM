@@ -2,12 +2,12 @@
 <html lang="pt-BR">
 
 <head>
+    <link href="{{ URL::asset('/assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="shortcut icon" href="{{ URL::asset('publico/img/icon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Pesagem</title>
     <link href="{{ URL::asset('publico/css/layout.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('/assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 

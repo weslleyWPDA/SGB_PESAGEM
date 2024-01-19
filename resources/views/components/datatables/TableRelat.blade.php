@@ -31,7 +31,7 @@
                 autoWidth: true,
                 scrollCollapse: true,
                 scrollX: true,
-                scrollY: true,
+                scrollY: "340px",
 
                 {{ $botoes ?? 'null' }}: 'Bfrtip',
                 buttons: [
@@ -57,6 +57,7 @@
                             columns: ':not(:last-child)',
                         }
                     },
+
                 ],
 
             });

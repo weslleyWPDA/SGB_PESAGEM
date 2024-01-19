@@ -9,6 +9,7 @@ use App\Models\pesagem;
 use App\Models\produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Adm_RelatorioCont extends Controller
 {
@@ -37,6 +38,7 @@ class Adm_RelatorioCont extends Controller
             'pesagem.peso_saida as peso_saida_p',
             'fazendas.name as faz_name',
 
+
         )
             ->whereNull('pesagem.delete')
             ->whereNotNull('pesagem.data_saida')
@@ -54,6 +56,17 @@ class Adm_RelatorioCont extends Controller
             ->whereBetween('pesagem.data_entrad', [$r->data_entrada, $r->data_saida])
             ->get();
 
-        return view('admin.relatorio.tabela', compact('data'));
+        $dado = pesagem::select('peso_entrad', 'peso_saida')
+            ->whereNull('delete')
+            ->whereNotNull('peso_saida')
+            ->whereBetween('data_entrad', [$r->data_entrada, $r->data_saida])->get();
+        $s_peso_entrad = $dado->sum('peso_entrad');
+        $s_peso_saida = $dado->sum('peso_saida');
+        $pesoliqtotal = ($s_peso_entrad - $s_peso_saida);
+
+
+
+
+        return view('admin.relatorio.tabela', compact('data', 'pesoliqtotal'));
     }
 }

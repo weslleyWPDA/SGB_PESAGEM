@@ -1,6 +1,9 @@
 <x-layouts.layouts titulo="PESAGEM {{ Auth::user()->fazenda->name }}">
     <nav>
         <x-botoes.botao_href color='gray' label='VOLTAR' link="{{ route('adm_relatorio') }}" />
+        <label class="" style="margin-left:60%;font-size:14px;font-weight:900">Peso
+            Liq Total: <label style="color:red">{{ $pesoliqtotal }}</label>
+        </label>
     </nav>
 
     <body>
@@ -49,7 +52,7 @@
                 </tbody>
             </table>
             @push('script')
-                <x-datatables.TableRelat tamanho='50' botoes='dom' />
+                <x-datatables.TableRelat tamanho='30' botoes='dom' />
             @endpush
             <style>
                 .tdtable {
