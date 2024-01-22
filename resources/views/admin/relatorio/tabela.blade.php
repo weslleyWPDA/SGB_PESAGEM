@@ -25,8 +25,9 @@
                         <th class="text-center">Peso_Entrada</th>
                         <th class="text-center">Peso_Saída</th>
                         <th class="text-center">Peso_Líquido</th>
-                        <th class="text-center" style="display:{{ Auth::user()->admin == null ? 'none' : null }}">
+                        <th class="text-center" {{ Auth::user()->admin == null ? 'hidden' : null }}>
                             Fazenda</th>
+                        <th class="text-center">Observação</th>
                         <th style="display:none"></th>
                     </tr>
                 </thead>
@@ -43,9 +44,12 @@
                             <td class="tdtable">{{ date('d/m/Y', strtotime($registro->data_saida_p)) }}</td>
                             <td class="tdtable">{{ $registro->peso_entrad_p }}</td>
                             <td class="tdtable">{{ $registro->peso_saida_p }}</td>
-                            <td class="tdtable">{{ $registro->peso_entrad_p - $registro->peso_saida_p }}</td>
-                            <td class="tdtable" style="display:{{ Auth::user()->admin == null ? 'none' : null }}">
+                            <td class="tdtable" style="font-weight:900">
+                                {{ $registro->peso_entrad_p - $registro->peso_saida_p }}
+                            </td>
+                            <td class="tdtable" {{ Auth::user()->admin == null ? 'hidden' : null }}>
                                 {{ $registro->faz_name }}</td>
+                            <td class="tdtable obs">{{ $registro->observacao }}</td>
                             <td style="display:none"></td>
                         </tr>
                     @endforeach
@@ -57,6 +61,10 @@
             <style>
                 .tdtable {
                     font-size: 11px !important
+                }
+
+                .obs {
+                    font-size: 10px !important
                 }
             </style>
         </div>

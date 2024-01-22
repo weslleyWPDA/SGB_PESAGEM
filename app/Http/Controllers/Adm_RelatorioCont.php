@@ -37,8 +37,7 @@ class Adm_RelatorioCont extends Controller
             'pesagem.peso_entrad as peso_entrad_p',
             'pesagem.peso_saida as peso_saida_p',
             'fazendas.name as faz_name',
-
-
+            'pesagem.obs as observacao',
         )
             ->whereNull('pesagem.delete')
             ->whereNotNull('pesagem.data_saida')
