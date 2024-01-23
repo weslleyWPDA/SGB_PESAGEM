@@ -23,14 +23,15 @@
                             <img src="{{ URL::asset('/publico/img/Logo.png') }}"
                                 style="max-width: 60%;padding: 10px;padding-bottom: 10px; margin-top:10px" />
                         </a>
-                        <section class="text-center"
-                            style="background: #ffffff;border-style: none;border-color: rgb(0,0,0);font-weight: 900;font-size:10px">
-                            <label> {{ Auth::user()->name }}</label>
-                            <br>
-                            <label style="color:red">
-                                {{ Auth::user()->admin == null ? 'USUARIO' : 'ADM' }}</label>
-                            <br>
-                            <label>{{ Auth::user()->fazenda->name ?? 'ERRO' }}</label>
+                        <section class="text-center" style="background: #ffffff;border-style: none">
+                            <label class="labelinicio">
+                                {{ Auth::user()->name }}
+                                <br>
+                                <a style="color:red">
+                                    {{ Auth::user()->admin == null ? 'USUARIO' : 'ADM' }}
+                                </a>
+                                <br>
+                                {{ Auth::user()->fazenda->name ?? 'ERRO' }}
                             </label>
                         </section>
                         {{-- logout --}}

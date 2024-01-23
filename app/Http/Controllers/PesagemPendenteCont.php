@@ -17,8 +17,7 @@ class PesagemPendenteCont extends Controller
      */
     public function index()
     {
-        $pesagem = pesagem::whereNUll('pesagem.data_saida')
-            ->whereNull('pesagem.peso_saida')
+        $pesagem = pesagem::whereNull('pesagem.peso_saida')
             ->whereNull('pesagem.delete')
             ->where('pesagem.fazenda_id', 'like', Auth::user()->admin > null ? '%' : Auth::user()->fazenda_id)
             ->get();

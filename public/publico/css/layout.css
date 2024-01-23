@@ -91,3 +91,8 @@ div.dropdown-item {
 }
 
 /* fimcss dropdown menu */
+.labelinicio {
+    width: 100%;
+    font-size: 12px !important;
+    font-weight: 700;
+}
