@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta charset="utf-8">
-    <title>{{ $titulo ?? 'SGB-Pesagem' }}</title>
+    <title>{{ $titulo ?? config('app.name') }}</title>
     <link href="{{ URL::asset('/assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('publico/css/layout.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ URL::asset('publico/img/icon.png') }}">
@@ -15,28 +15,25 @@
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
-            style="background:var(--layout-color);width:200px">
+            style="background:var(--layout-color)">
             <div class="container-fluid d-flex flex-column p-0">
-                <ul class="navbar-nav text-center text-light" id="accordionSidebar" style="text-align: center; ">
+                <ul class="navbar-nav text-center text-light w-100" id="accordionSidebar">
                     <li class="nav-item text-center">
                         <a href="{{ route('u_inicio') }}">
-                            <img src="{{ URL::asset('/publico/img/Logo.png') }}"
-                                style="max-width: 60%;padding: 10px;padding-bottom: 10px; margin-top:10px" />
+                            <img class="imagem" src="{{ URL::asset('/publico/img/Logo.png') }}" />
                         </a>
-                        <section class="text-center" style="background: #ffffff;border-style: none">
-                            <label class="labelinicio">
-                                {{ Auth::user()->name }}
-                                <br>
-                                <a style="color:red">
-                                    {{ Auth::user()->admin == null ? 'USUARIO' : 'ADM' }}
-                                </a>
-                                <br>
-                                {{ Auth::user()->fazenda->name ?? 'ERRO' }}
+                        <section class="text-center"
+                            style="background: #ffffff;border-style: none;font-weight: 900;font-size:10px">
+                            <label> {{ Auth::user()->name }}</label>
+                            <br>
+                            <label style="color:red">
+                                {{ Auth::user()->admin == null ? 'USUARIO' : 'ADM' }}</label>
+                            <br>
+                            <label>{{ Auth::user()->fazenda->name ?? 'ERRO' }}</label>
                             </label>
                         </section>
                         {{-- logout --}}
-                        <a href="{{ route('logout') }}" class="btn btn-primary btns w-100" type="buttom"
-                            style="background-color:red;border:none;border-radius:0px;font-weight: 800; margin: 0 0 10px 0;">SAIR
+                        <a href="{{ route('logout') }}" class="btn btn-primary w-100 btn_sair" type="buttom">SAIR
                         </a>
                         {{-- dropdown --}}
                         <x-drop-navbar.drop-navbar label='PESAGEM'>
@@ -63,10 +60,10 @@
             </div>
             <p style="color:white;font-size:10px;text-align:left;position:absolute">Feito por: WeslleyP.</p>
         </nav>
-        <div class="d-flex flex-column" id="content-wrapper" style="width: 100%;">
-            <div id="content" style="width: 100%;">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
                 <x-alerts.time-alert-validator />
-                <main style="margin:0px">
+                <main>
                     {{ $slot }}
                 </main>
             </div>

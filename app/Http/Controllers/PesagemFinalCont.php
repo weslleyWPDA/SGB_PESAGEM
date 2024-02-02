@@ -73,22 +73,31 @@ class PesagemFinalCont extends Controller
      */
     public function destroy(string $id, Request $r)
     {
-        pesagem::where('id', $r->id)->delete();
-        toast('Deletado com Sucesso!', 'error');
-        return redirect()->back();
+        if (Auth::user()->admin > null) {
+            pesagem::where('id', $r->id)->delete();
+            toast('Deletado com Sucesso!', 'error');
+            return redirect()->back();
+        } else {
+            toast('Acesso Bloqueado', 'error');
+            return redirect()->back();
+        };
     }
     /**
      * .
      */
     public function reabrir(Request $r)
     {
-        pesagem::where('id', $r->id)->update([
-            'peso_saida' => $r->peso_saida,
-            'obs' => $r->observacao,
-            // 'data_saida' => $r->data_saida,
-        ]);
-        toast('Reaberto com Sucesso!', 'warning');
-        return redirect()->route('pesagem.index');
+        if (Auth::user()->admin > null) {
+            pesagem::where('id', $r->id)->update([
+                'peso_saida' => $r->peso_saida,
+                'obs' => $r->observacao,
+            ]);
+            toast('Reaberto com Sucesso!', 'warning');
+            return redirect()->route('pesagem.index');
+        } else {
+            toast('Acesso Bloqueado', 'error');
+            return redirect()->back();
+        };
     }
     /**
      * .

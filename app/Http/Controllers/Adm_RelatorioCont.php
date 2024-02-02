@@ -53,6 +53,7 @@ class Adm_RelatorioCont extends Controller
             ->where('pesagem.nf', 'like', $r->nfe ?? '%')
             ->where('fornecedores.id', 'like', $r->fornecedor_id ?? '%')
             ->whereBetween('pesagem.data_entrad', [$r->data_entrada, $r->data_saida])
+            ->orderBy('p_id', 'desc')
             ->get();
         $s_peso_entrad = $data->sum('peso_entrad_p');
         $s_peso_saida = $data->sum('peso_saida_p');

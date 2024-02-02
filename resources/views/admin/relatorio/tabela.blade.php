@@ -1,39 +1,38 @@
 <x-layouts.layouts titulo="PESAGEM {{ Auth::user()->fazenda->name }}">
     <nav>
-        <x-botoes.botao_href color='gray' label='VOLTAR' link="{{ route('adm_relatorio') }}" />
+        <a href='{{ route('adm_relatorio') }}' type="button" class="btn btn-secondary botoes">VOLTAR</a>
         <label class="" style="margin-left:60%;font-size:14px;font-weight:900">Peso
-            Liq Total: <label style="color:red">{{ $pesoliqtotal }}</label>
+            Liq Total: <a style="color:red">{{ number_format($pesoliqtotal, 0, ',', '.') }}</a>
         </label>
     </nav>
 
     <body>
-        <div class='tabeladiv' style="border-radius:10px;padding:10px;margin:0 10px 0 10px;background:white">
-            <label style='font-size:18px;color:black;text-align:center;width:100%;font-weight:600'>
+        <div class='tabeladiv' style="margin:0 10px 0 10px">
+            <label class="w-100 text-left" style='font-size:18px;font-weight:600'>
                 RELATÓRIO
             </label>
-            <table id="datatable_tabela" class=" display compact">
+            <table id="datatable_tabela" class="display compact" style="width: 100%">
                 <thead>
                     <tr>
-                        <th class="text-center">Cod.</th>
-                        <th class="text-center">Fornec.</th>
-                        <th class="text-center">Produto</th>
-                        <th class="text-center">Nota</th>
-                        <th class="text-center">Motorista</th>
-                        <th class="text-center">Placa</th>
-                        <th class="text-center">Data_Entrada</th>
-                        <th class="text-center">Data_Saída</th>
-                        <th class="text-center">Peso_Entrada</th>
-                        <th class="text-center">Peso_Saída</th>
-                        <th class="text-center">Peso_Líquido</th>
-                        <th class="text-center" {{ Auth::user()->admin == null ? 'hidden' : null }}>
-                            Fazenda</th>
-                        <th class="text-center">Observação</th>
+                        <th>Cod.</th>
+                        <th>Fornec.</th>
+                        <th>Produto</th>
+                        <th>Nota</th>
+                        <th>Motorista</th>
+                        <th>Placa</th>
+                        <th>Data_Entrada</th>
+                        <th>Data_Saída</th>
+                        <th>Peso_Entrada</th>
+                        <th>Peso_Saída</th>
+                        <th>Peso_Líquido</th>
+                        <th>Fazenda</th>
+                        <th>Observação</th>
                         <th style="display:none"></th>
                     </tr>
                 </thead>
-                <tbody class="text-center">
+                <tbody>
                     @foreach ($data as $registro)
-                        <tr class="text-center">
+                        <tr>
                             <td class="tdtable">{{ $registro->p_id }}</td>
                             <td class="tdtable">{{ $registro->forn_name }}</td>
                             <td class="tdtable">{{ $registro->prod_name }}</td>
@@ -42,13 +41,12 @@
                             <td class="tdtable">{{ $registro->p_placa }}</td>
                             <td class="tdtable">{{ date('d/m/Y', strtotime($registro->data_entrad_p)) }}</td>
                             <td class="tdtable">{{ date('d/m/Y', strtotime($registro->data_saida_p)) }}</td>
-                            <td class="tdtable">{{ $registro->peso_entrad_p }}</td>
-                            <td class="tdtable">{{ $registro->peso_saida_p }}</td>
+                            <td class="tdtable">{{ number_format($registro->peso_entrad_p, 0, ',', '.') }}</td>
+                            <td class="tdtable">{{ number_format($registro->peso_saida_p, 0, ',', '.') }}</td>
                             <td class="tdtable" style="font-weight:900">
-                                {{ $registro->peso_entrad_p - $registro->peso_saida_p }}
+                                {{ number_format($registro->peso_entrad_p - $registro->peso_saida_p, 0, ',', '.') }}
                             </td>
-                            <td class="tdtable" {{ Auth::user()->admin == null ? 'hidden' : null }}>
-                                {{ $registro->faz_name }}</td>
+                            <td class="tdtable">{{ $registro->faz_name }}</td>
                             <td class="tdtable obs">{{ $registro->observacao }}</td>
                             <td style="display:none"></td>
                         </tr>
@@ -56,17 +54,19 @@
                 </tbody>
             </table>
             @push('script')
-                <x-datatables.TableRelat tamanho='30' botoes='dom' />
+                <x-datatables.TableRelat tamanho='50' botoes='dom' />
             @endpush
-            <style>
-                .tdtable {
-                    font-size: 11px !important
-                }
+            @push('css')
+                <style>
+                    .tdtable {
+                        font-size: 11px !important
+                    }
 
-                .obs {
-                    font-size: 10px !important
-                }
-            </style>
+                    .obs {
+                        font-size: 10px !important
+                    }
+                </style>
+            @endpush
         </div>
     </body>
 </x-layouts.layouts>

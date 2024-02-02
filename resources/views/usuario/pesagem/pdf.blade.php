@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="{{ URL::asset('publico/img/icon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta charset="utf-8">
-    <title>{{ $titulo ?? 'SGB-Pesagem' }}</title>
+    <title>{{ $titulo ?? config('app.name') }}</title>
 </head>
 <div class="imprimir">
     <a href="{{ route('u_inicio') }}" style="text-decoration: none">
@@ -24,7 +24,7 @@
             style="width: 465px;height: auto;padding: 0px;margin-right: 2px;margin-bottom: 2px;border-width: 1px;border-style: none;margin-top: 7px;margin-left: 2px;">
             <div class="d-inline-block"
                 style="border: 1px solid rgb(0,0,0);width: 449px;height: 155px;margin-left: 6px;"><img
-                    class="d-inline-block float-start" src="{{ URL('publico/img/Logo.png') }}" width="150"
+                    class="d-inline-block float-start" src="{{ URL('publico/img/Logo-pdf.png') }}" width="150"
                     height="110"
                     style="width: 160px;margin-right: 10px;margin-left: 10px;margin-top: 15px;margin-bottom: 15px;" />
                 <div class="d-inline" style="width: 52%;border-color: rgb(0,0,0);height: 150px">
@@ -142,7 +142,7 @@
                         PESO DE ENTRADA</p>
                     <p class="text-center"
                         style="margin-top: -17px;color: rgb(0,0,0);width: 100%;font-size: 21PX;border-style: none;font-weight: bold;">
-                        {{ $data->peso_entrad ?? null }}</p>
+                        {{ number_format($data->peso_entrad, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="d-inline-block float-start d-lg-flex"
@@ -153,7 +153,7 @@
                         PESO DE SAÍDA </p>
                     <p class="text-center"
                         style="margin-top: -17px;color: rgb(0,0,0);width: 100%;font-size: 21PX;border-style: none;font-weight: bold;">
-                        {{ $data->peso_saida ?? null }}</p>
+                        {{ number_format($data->peso_saida, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="d-inline-block float-start d-lg-flex"
@@ -164,7 +164,8 @@
                         PESO LÍQUIDO</p>
                     <p class="text-center"
                         style="margin-top: -17px;color: rgb(0, 0, 0);width: 100%;font-weight: bold;font-size: 24PX;border-style: none;">
-                        {{ $pesoliquido ?? null }}</p>
+                        {{ number_format($pesoliquido, 0, ',', '.') }}
+                    </p>
                 </div>
             </div>
             <div class="d-inline-block float-start d-lg-flex"
@@ -186,7 +187,7 @@
             style="width: 465px;height: auto;padding: 0px;margin-right: 2px;margin-bottom: 2px;border-width: 1px;border-style: none;margin-top: 7px;margin-left: 2px;">
             <div class="d-inline-block"
                 style="border: 1px solid rgb(0,0,0);width: 449px;height: 155px;margin-left: 6px;"><img
-                    class="d-inline-block float-start" src="{{ URL('publico/img/Logo.png') }}" width="150"
+                    class="d-inline-block float-start" src="{{ URL('publico/img/Logo-pdf.png') }}" width="150"
                     height="110"
                     style="width: 160px;margin-right: 10px;margin-left: 10px;margin-top: 15px;margin-bottom: 15px;" />
                 <div class="d-inline" style="width: 52%;border-color: rgb(0,0,0);height: 150px">
@@ -304,7 +305,7 @@
                         PESO DE ENTRADA</p>
                     <p class="text-center"
                         style="margin-top: -17px;color: rgb(0,0,0);width: 100%;font-size: 21PX;border-style: none;font-weight: bold;">
-                        {{ $data->peso_entrad ?? null }}</p>
+                        {{ number_format($data->peso_entrad, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="d-inline-block float-start d-lg-flex"
@@ -315,7 +316,7 @@
                         PESO DE SAÍDA </p>
                     <p class="text-center"
                         style="margin-top: -17px;color: rgb(0,0,0);width: 100%;font-size: 21PX;border-style: none;font-weight: bold;">
-                        {{ $data->peso_saida ?? null }}</p>
+                        {{ number_format($data->peso_saida, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="d-inline-block float-start d-lg-flex"
@@ -326,7 +327,7 @@
                         PESO LÍQUIDO</p>
                     <p class="text-center"
                         style="margin-top: -17px;color: rgb(0,0,0);width: 100%;font-weight: bold;font-size: 21PX;border-style: none;">
-                        {{ $pesoliquido ?? null }}</p>
+                        {{ number_format($pesoliquido, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="d-inline-block float-start d-lg-flex"

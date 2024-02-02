@@ -97,8 +97,13 @@ class FornecedorAdmCont extends Controller
      */
     public function destroy(string $id)
     {
-        fornecedor::where('id', $id)->update(['delete' => 1]);
-        toast('Deletado com Sucesso!', 'error');
-        return redirect()->back();
+        if (Auth::user()->admin > null) {
+            fornecedor::where('id', $id)->update(['delete' => 1]);
+            toast('Deletado com Sucesso!', 'error');
+            return redirect()->back();
+        } else {
+            toast('Acesso Bloqueado', 'error');
+            return redirect()->back();
+        };
     }
 }

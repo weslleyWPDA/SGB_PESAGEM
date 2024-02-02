@@ -20,43 +20,34 @@
     font-family: Tahoma, Arial, sans-serif;
 }
 
-.sair-btn:hover {
+.btn_sair {
+    background-color: red;
+    border: none;
+    border-radius: 0px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+}
+
+.btn_sair:hover {
     transform: scale(1.05);
-    opacity: 0.9;
-    cursor: pointer;
-}
-
-/* icones bootstrap */
-.table-icon:hover {
-    opacity: 0.5;
-    transform: scale(1.08);
-
-    cursor: pointer;
-
-}
-
-table {
-    font-size: 13px !important;
-}
-
-.btns {
-    color: white !important;
+    background-color: red;
+    border: none;
+    border-radius: 0px;
     font-weight: 800;
-    margin: 5px;
+    margin: 0 0 10px 0;
+
 }
 
-.btns:hover {
-    color: white !important;
-    font-weight: 800;
-    transform: scale(1.08);
-    cursor: pointer;
+.imagem {
+    max-width: 60%;
+    padding: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px
 }
 
 #content {
     background-color: rgb(255, 255, 255) !important
 }
-
-
 
 /* css dropdown menu */
 .drop.dropdown-toggle {
@@ -65,6 +56,10 @@ table {
 
 .dropdown-menu {
     margin: 2px;
+}
+
+.dropdown-toggle {
+    font-size: 0.8em !important;
 }
 
 .dropdown-item,
@@ -90,9 +85,37 @@ div.dropdown-item {
     cursor: pointer;
 }
 
-/* fimcss dropdown menu */
-.labelinicio {
-    width: 100%;
-    font-size: 12px !important;
-    font-weight: 700;
+.lbtn:hover {
+    transform: scale(1.08);
+}
+
+.input-password {
+    border: 1px solid black;
+    padding: 2px;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+.input-user {
+    border: 1px solid black;
+    padding: 2px;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+.navbar {
+    width: 200px;
+}
+
+.botoes {
+    /* transform: scale(1.05); */
+    border: none;
+    border-radius: 5px;
+    font-weight: 800;
+    margin: 5px;
+    color: white !important;
+}
+
+.botoes:hover {
+    transform: scale(1.05);
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\produto;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -93,8 +94,13 @@ class ProdutosAdmCont extends Controller
      */
     public function destroy(string $id)
     {
-        produto::where('id', $id)->update(['delete' => 1]);
-        toast('Deletado com Sucesso!', 'error');
-        return redirect()->back();
+        if (Auth::user()->admin > null) {
+            produto::where('id', $id)->update(['delete' => 1]);
+            toast('Deletado com Sucesso!', 'error');
+            return redirect()->back();
+        } else {
+            toast('Acesso Bloqueado', 'error');
+            return redirect()->back();
+        };
     }
 }

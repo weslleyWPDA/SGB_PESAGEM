@@ -1,8 +1,8 @@
 <x-layouts.layouts>
     <nav style="margin: 5px">
-        <a href='{{ route('u_inicio') }}' type="button" class="btn btn-secondary btns">VOLTAR</a>
+        <a href='{{ route('u_inicio') }}' type="button" class="btn btn-secondary botoes">VOLTAR</a>
         <!-- Button  modal -->
-        <a class="btn btn-success btns" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a class="btn btn-success botoes" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color:white">
             CADASTRAR
         </a>
     </nav>
@@ -33,9 +33,10 @@
                             {{-- botoes --}}
                             <div class="text-center"
                                 style="margin-top:10px;width: 100%;padding: 10px;border-radius: 10px;">
-                                <button type='submit' class="btn btn-success btns">CADASTRAR</button>
-                                <button type="button" class="btn btn-danger btns" data-bs-dismiss="modal"
-                                    aria-label="Close">SAIR
+                                <button type='submit' class="btn btn-success botoes"
+                                    style="color: white">CADASTRAR</button>
+                                <button type="button" class="btn btn-danger botoes" data-bs-dismiss="modal"
+                                    style="color: white" aria-label="Close">SAIR
                                 </button>
                             </div>
                         </div>
@@ -46,17 +47,17 @@
     </div>
     {{-- fim modal --}}
 
-    <div class='tabeladiv' style="border-radius:10px;margin:0 30px 0 30px;background:white">
-        <label style='font-size:22px;color:black;text-align:center;width:100%;font-weight:600'>
+    <div class='tabeladiv' style="margin:0 20px 0 20px">
+        <label style='font-size:20px;color:black;text-align:left;width:100%;font-weight:600'>
             FORNECEDORES
         </label>
         <table id="datatable_tabela" class="display compact" style="width:100%">
             <thead>
                 <tr class="trtable">
-                    <th style="text-align: center">OPÇOES</th>
-                    <th style="text-align: center">ID</th>
-                    <th style="text-align: center">NOME</th>
-                    <th style="text-align: center">CPF/CNPJ</th>
+                    <th>OPÇOES</th>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>CPF/CNPJ</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,8 +67,7 @@
                             {{-- inicio modal edit --}}
                             <div style="display: inline-block">
                                 <button type="button" class="bi bi-pencil-square table_icon" title="Editar!"
-                                    data-bs-toggle="modal"
-                                    style="background-color:#00000000;color:rgb(219, 168, 17);font-size: 20px;display:inline-block;margin-right:5px"
+                                    data-bs-toggle="modal" style="color:rgb(219, 168, 17)"
                                     data-bs-target="#ModalEditar{{ $registro->id }}">
                                 </button>
                                 <!-- Modal Editar-->
@@ -103,10 +103,11 @@
                                                         {{-- botoes --}}
                                                         <div class="text-center"
                                                             style="margin-top:10px;width: 100%;padding: 10px;border-radius: 10px;">
-                                                            <button type='submit'
-                                                                class="btn btn-warning btns">EDITAR</button>
-                                                            <button type="button" class="btn btn-danger btns"
-                                                                data-bs-dismiss="modal" aria-label="Close">CANCELAR
+                                                            <button type='submit' class="btn btn-warning botoes"
+                                                                style="color: white">EDITAR</button>
+                                                            <button type="button" class="btn btn-danger botoes"
+                                                                data-bs-dismiss="modal" aria-label="Close"
+                                                                style="color: white">SAIR
                                                             </button>
                                                         </div>
                                                     </div>
@@ -118,12 +119,12 @@
                             </div>
                             {{-- fim modal edit --}}
                             <form action="{{ route('fornecedor.destroy', $registro->id) }}" method="POST"
-                                style="display:inline-block;margin-left:5px">
+                                style="display:inline-block">
                                 @csrf
                                 @method('delete')
                                 <button onclick="return perguntaDelete();" class="bi bi-x-circle table_icon"
                                     title="Deletar!"
-                                    style="background-color:rgba(0,0,0,0);font-size:20px;color:red; margin:0px;
+                                    style="color:red;
                                      display:{{ Auth::user()->admin > null ? '' : 'none' }}">
                                 </button>
                             </form>

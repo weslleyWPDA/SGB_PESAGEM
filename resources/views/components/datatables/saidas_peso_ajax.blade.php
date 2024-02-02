@@ -11,11 +11,9 @@
     <script src="{{ URL::asset('/datatables/script/dataTables.bootstrap5.min.js') }}"></script>
     {{-- script de formatar data na tabela com server side --}}
     <script src="{{ URL::asset('/datatables/script/moment.min.js') }}"></script>
-
     <!-- Script -->
     <script type="text/javascript">
         $(document).ready(function() {
-
             // DataTable
             $('#datatable_tabela').DataTable({
                 language: {
@@ -64,14 +62,14 @@
                         name: 'pesagem.id',
                         width: 'auto',
                         render: function(data) {
-                            return '<form action="{{ route('finalizado.show', 'show') }}" method="post" style="display:inline-block">@csrf @method('GET')<button class="bi bi-card-text table-icon" style="background-color:#00000000;font-size:20px;margin:0px;padding:0px;color:blue" title="Imprimir!" name="id" value="' +
+                            return '<form action="{{ route('finalizado.show', 'show') }}" method="post" style="display:inline-block">@csrf @method('GET')<button class="bi bi-card-text table_icon" style="color:blue" title="Imprimir!" name="id" value="' +
                                 data + '"></button></form>' +
-                                '<form action="{{ route('reabrir') }}" method="POST" style="display:inline-block">@csrf @method('post')<button onclick="return perguntaReabrir();"class="bi bi-caret-left-square table-icon" title="Reabrir!" name="id" value="' +
+                                '<form action="{{ route('reabrir') }}" method="POST" style="display:inline-block">@csrf @method('post')<button onclick="return perguntaReabrir();"class="bi bi-caret-left-square table_icon" title="Reabrir!" name="id" value="' +
                                 data +
-                                '" style="margin:0 0 0 10px;background-color:#00000000;color:#B8860B;font-size:20px;padding:0px;display:{{ Auth::user()->admin > null ? '' : 'none' }}"></button></form>' +
-                                '<form action="{{ route('finalizado.destroy', 'delete') }}" method="POST" style="display:inline-block">@csrf @method('delete')<button onclick="return perguntaDelete();"class="bi bi-x-circle table-icon" title="Deletar!" name="id" value="' +
+                                '" style="color:#B8860B;display:{{ Auth::user()->admin > null ? '' : 'none' }}"></button></form>' +
+                                '<form action="{{ route('finalizado.destroy', 'delete') }}" method="POST" style="display:inline-block">@csrf @method('delete')<button onclick="return perguntaDelete();"class="bi bi-x-circle table_icon" title="Deletar!" name="id" value="' +
                                 data +
-                                '" style="margin:0 0 0 10px;background-color:#00000000;color:red;font-size:20px;padding:0px;display:{{ Auth::user()->admin > null ? '' : 'none' }}"></button></form>'
+                                '" style="color:red;display:{{ Auth::user()->admin > null ? '' : 'none' }}"></button></form>'
                         },
                     }, {
                         title: 'COD',
@@ -110,12 +108,14 @@
                         data: 'peso_entrad_p',
                         name: 'pesagem.peso_entrad',
                         width: 'auto',
+                        render: DataTable.render.number('.', ',', 0, '')
                     },
                     {
                         title: 'PESO_SAÍDA',
                         data: 'peso_saida_p',
                         name: 'pesagem.peso_saida',
                         width: 'auto',
+                        render: DataTable.render.number('.', ',', 0, '')
                     },
                     {
                         title: 'FAZENDA',
@@ -123,10 +123,8 @@
                         name: 'fazendas.name',
                         width: 'auto',
                         visible: {{ Auth::user()->admin > null ? 'true' : 'false' }},
-
                     }
                 ],
-
             });
         });
 

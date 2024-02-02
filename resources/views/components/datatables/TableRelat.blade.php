@@ -26,13 +26,9 @@
                 order: [
                     [0, 'desc']
                 ], //[ 1, 'asc' ]], //ordenaçao das colunas, nesse caso esta por ID
-                paginate: true,
-                filter: true,
-                autoWidth: true,
-                scrollCollapse: true,
                 scrollX: true,
-                scrollY: "340px",
-
+                scrollY: "350px",
+                scrollCollapse: true,
                 {{ $botoes ?? 'null' }}: 'Bfrtip',
                 buttons: [
                     // para chamar os botoes na variavel e so colocar dom // 'copyHtml5',
@@ -62,9 +58,5 @@
 
             });
         });
-
-        function perguntaDelete() {
-            return confirm('Deseja realmente DELETAR o registro?');
-        }
     </script>
 @endpush

@@ -41,8 +41,9 @@
                 </label><label class="form-label text-start"
                     style="width: 40%;height: auto;color: rgb(255,255,255);font-size: 15px;margin-right: 10px;margin-left: 10px;">
                     Data de Entrada:
-                    <label class="texto">{{ \Carbon\Carbon::parse($data->data_entrad)->format('d/m/Y') }}</label>
+                    <label class="texto">{{ date('d/m/Y', strtotime($data->data_entrad)) }}</label>
                 </label>
+
 
             </div>
             <div class="d-inline-block d-lg-flex justify-content-lg-center align-items-lg-center mb-3"
@@ -57,7 +58,7 @@
                     Peso
                     da Saida:<br />
                     <input id="peso_entrad" class="form-control upper" type="number"autocomplete="off"
-                        style="width: 100%;height: 30px;color: rgb(0,0,0);" required name="peso_saida" />
+                        style="width: 97%;height: 30px;color: rgb(0,0,0);" required name="peso_saida" />
                 </label>
             </div>
             <div class="d-inline-block d-lg-flex justify-content-lg-center align-items-lg-center mb-3"

@@ -1,21 +1,21 @@
 <x-layouts.layouts>
     <nav>
-        <a href='{{ route('u_inicio') }}' type="button" class="btn btn-secondary btns botoes">VOLTAR</a>
-        <x-botoes.botao_href color='green' label='CADASTRAR' link="{{ route('usuarios.create') }}" />
+        <a href='{{ route('u_inicio') }}' type="button" class="btn btn-secondary botoes">VOLTAR</a>
+        <a href='{{ route('usuarios.create') }}' type="button" class="btn btn-success botoes">CADASTRAR</a>
     </nav>
 
     <div class='tabeladiv' style="border-radius:10px;padding:10px;margin:15px;background:white">
-        <label style='font-size:2vw;color:black;text-align:center;width:100%;font-weight:600'>
+        <label style='font-size:20px;color:black;text-align:left;width:100%;font-weight:600'>
             USUARIOS
         </label>
-        <table id="datatable_tabela" class="display compact w-100">
+        <table id="datatable_tabela" class="display compact" style="width: 100%">
             <thead>
                 <tr class="trtable">
-                    <th style="text-align: center">OPÇOES</th>
-                    <th style="text-align: center">ID</th>
-                    <th style="text-align: center">USUARIO</th>
-                    <th style="text-align: center">FAZENDA</th>
-                    <th style="text-align: center">NIVEL</th>
+                    <th>OPÇOES</th>
+                    <th>ID</th>
+                    <th>USUARIO</th>
+                    <th>FAZENDA</th>
+                    <th>NIVEL</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,16 +24,15 @@
                         <td class="tdtable">
                             <form action="{{ route('usuarios.edit', $registro->id) }}" method="get"
                                 style="display:inline-block">
-                                <button class="bi bi-pencil-square table_icon" title="Editar!"
-                                    style="background-color:rgba(0,0,0,0);font-size:20px;color:#DAA520">
+                                <button class="bi bi-pencil-square table_icon" title="Editar!" style="color:#DAA520">
                                 </button>
                             </form>
                             <form action="{{ route('usuarios.destroy', $registro->id) }}" method="POST"
-                                style="display:inline-block;margin-left:5px">
+                                style="display:inline-block">
                                 @csrf
                                 @method('delete')
                                 <button onclick="return perguntaDelete();" class="bi bi-x-circle table_icon"
-                                    title="Deletar!" style="background-color:rgba(0,0,0,0);font-size:20px;color:red">
+                                    title="Deletar!" style="color:red">
                                 </button>
                             </form>
                         </td>
@@ -43,10 +42,10 @@
                         <td class="tdtable">{{ $registro->admin == 1 ? 'ADMIN' : 'USUARIO' }}</td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
-        @push('script')
-            <x-datatables.datatables tamanho='10' botoes='null' />
-        @endpush
-        </x-layouts.adm_layouts>
+    </div>
+    @push('script')
+        <x-datatables.datatables tamanho='10' botoes='null' />
+    @endpush
+</x-layouts.layouts>

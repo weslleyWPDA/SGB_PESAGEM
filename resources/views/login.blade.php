@@ -20,15 +20,15 @@
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
                                 <div class="flex-grow-1 bg-login-image"
-                                    style="background: url('{{ URL::asset('publico/img/img-login.jpeg') }}') left / cover;">
+                                    style="background: url('{{ URL::asset('publico/img/img-login.jpg') }}') left / cover;">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h4 class="text-dark "
-                                            style="width: 100%;font-size: 26px;font-weight: 900;color:black">SGB
-                                            PESAGEM </h4>
+                                            style="width: 100%;font-size: 26px;font-weight: 900;color:black">
+                                            {{ config('app.name') }}</h4>
                                     </div>
                                     <hr>
                                     <form method="POST" action="{{ route('login_user') }}" class="user">
@@ -75,21 +75,3 @@
 </body>
 
 </html>
-
-<style>
-    .lbtn:hover {
-        transform: scale(1.08);
-    }
-
-    .input-password {
-        border: 1px solid black;
-        padding: 1px;
-        border-radius: 5px;
-    }
-
-    .input-user {
-        border: 1px solid black;
-        padding: 1px;
-        border-radius: 5px;
-    }
-</style>
