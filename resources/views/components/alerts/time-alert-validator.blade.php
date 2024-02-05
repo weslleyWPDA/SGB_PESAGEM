@@ -12,15 +12,17 @@
  </div>
  {{-- fim erros validation --}}
  {{-- script de tempo para fechar o alerta --}}
- <script src="{{ URL::asset('/publico/js/jquery.js') }}"></script>
- <script type="text/javascript">
-     $(document).ready(function() {
+ @push('script')
+     <script src="{{ URL::asset('/publico/js/jquery-3.7.1.min.js') }}"></script>
+     <script type="text/javascript">
+         $(document).ready(function() {
 
-         window.setTimeout(function() {
-             $(".alert").fadeTo(700, 0).slideUp(700, function() {
-                 $(this).remove();
-             });
-         }, 2500);
+             window.setTimeout(function() {
+                 $(".alert").fadeTo(700, 0).slideUp(700, function() {
+                     $(this).remove();
+                 });
+             }, 2500);
 
-     });
- </script>
+         });
+     </script>
+ @endpush

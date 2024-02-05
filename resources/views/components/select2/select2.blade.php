@@ -1,6 +1,6 @@
 {{-- select2  e so colocar na classe do select a classe sel --}}
 @push('script')
-    <script src="{{ URL::asset('/select2/js/jquery-3.7.0.min.js') }}"></script>
+    {{-- <script src="{{ URL::asset('/select2/js/jquery-3.7.0.min.js') }}"></script> --}}
     <script src="/select2/js/select2.min.js"></script>
     <link href="/select2/css/select2.min.css" rel="stylesheet" />
     <script>

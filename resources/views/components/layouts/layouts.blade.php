@@ -72,7 +72,7 @@
 </body>
 <script src="{{ URL::asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
 @include('sweetalert::alert')
-<x-botoes.js-textoUpper />
+<x-scripts.js-textoUpper />
 @stack('script')
 @stack('script_table')
 

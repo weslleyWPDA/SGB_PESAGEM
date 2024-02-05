@@ -68,7 +68,7 @@
     </div>
     {{-- alertas pop up toast --}} {{-- textos maisculo no campo input --}}
     @include('sweetalert::alert')
-    <x-botoes.js-textoUpper />
+    <x-scripts.js-textoUpper />
     <x-select2.select2 />
     @stack('script')
     @stack('css')
