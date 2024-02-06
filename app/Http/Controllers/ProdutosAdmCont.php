@@ -34,15 +34,20 @@ class ProdutosAdmCont extends Controller
      */
     public function store(Request $r)
     {
-        $validated = $r->validate([
-            'name' => Rule::unique('produtos')->whereNull('delete'),
-        ], [
-            "name.unique" => "Produto já existente!",
-        ]);
-        if (produto::create($validated)) {
-            toast('Cadastrado!', 'success');
+        if (Auth::user()->admin == 1) {
+            toast('Administrador não Cadastra!', 'error');
             return redirect()->back();
-        };
+        } else {
+            $validated = $r->validate([
+                'name' => Rule::unique('produtos')->whereNull('delete'),
+            ], [
+                "name.unique" => "Produto já existente!",
+            ]);
+            if (produto::create($validated)) {
+                toast('Cadastrado!', 'success');
+                return redirect()->back();
+            };
+        }
     }
 
     /**

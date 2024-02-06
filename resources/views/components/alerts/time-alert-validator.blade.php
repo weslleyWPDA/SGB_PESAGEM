@@ -1,5 +1,5 @@
  {{-- erros validation --}}
- <div style="width: 500px;margin-left:40%;text-align:center;height: 40px;position: absolute;">
+ <div style="width: 500px;margin-left:40%;margin-top:5px;text-align:center;height: 40px;position: absolute;">
      @if ($errors->any())
          <div class="alert alert-danger">
              <ul>

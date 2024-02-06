@@ -12,7 +12,7 @@
         <hr style="width: 80%;margin: 0 10% 0 10%" />
         <div class="d-inline-block d-lg-flex justify-content-lg-center align-items-lg-center mb-3">
             <label class="form-label text-start labels">Fornecedor:
-                <select class="sel" required name="fornecedor_id">
+                <select class="sel w-100" required name="fornecedor_id">
                     <option hidden selected value="{{ $dado->fornecedor->id }}">{{ $dado->fornecedor->cpf_cnpj }} -
                         {{ $dado->fornecedor->name }}
                     </option>
@@ -25,7 +25,7 @@
                 </select>
             </label>
             <label class="form-label text-start labels">Produto:
-                <select class="sel" style="width: 100%;height: 30px;text-align:center" required name="produto_id">
+                <select class="sel w-100" required name="produto_id">
                     <option hidden selected value="{{ $dado->produto->id }}">{{ $dado->produto->name }}</option>
                     @foreach ($produto as $faz)
                         <option value="{{ $faz->id }}">{{ $faz->name }}</option>
@@ -98,10 +98,7 @@
             }
         </style>
     @endpush
-
-    {{-- --}}
     @push('script')
-        <x-botoes.js-textoUpper />
         <x-select2.select2 />
     @endpush
 </x-layouts.layouts>

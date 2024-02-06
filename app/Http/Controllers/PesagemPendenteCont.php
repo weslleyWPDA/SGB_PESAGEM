@@ -41,25 +41,30 @@ class PesagemPendenteCont extends Controller
      */
     public function store(Request $r)
     {
-        $validacao = $r->validate([
-            "fornecedor_id" => 'required',
-            "produto_id" => 'required',
-            "nf" => 'required',
-            "motorista" => 'required',
-            "placa" => 'required',
-            "peso_entrad" => 'required',
-            "data_entrad" => 'required',
-            "fazenda_id" => 'required',
-            "user_id" => 'required',
-        ]);
-        try {
-            pesagem::create($validacao);
-        } catch (Exception) {
-            toast('Erro ao Cadastrar!', 'error');
+        if (Auth::user()->admin == 1) {
+            toast('Administrador não Cadastra!', 'error');
             return redirect()->back();
+        } else {
+            $validacao = $r->validate([
+                "fornecedor_id" => 'required',
+                "produto_id" => 'required',
+                "nf" => 'required',
+                "motorista" => 'required',
+                "placa" => 'required',
+                "peso_entrad" => 'required',
+                "data_entrad" => 'required',
+                "fazenda_id" => 'required',
+                "user_id" => 'required',
+            ]);
+            try {
+                pesagem::create($validacao);
+            } catch (Exception) {
+                toast('Erro ao Cadastrar!', 'error');
+                return redirect()->back();
+            }
+            toast('Cadastrado com Sucesso!', 'success');
+            return redirect()->route('pesagem.index');
         }
-        toast('Cadastrado com Sucesso!', 'success');
-        return redirect()->route('pesagem.index');
     }
 
     /**

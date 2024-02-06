@@ -12,7 +12,7 @@
         <div class="d-inline-block d-lg-flex justify-content-lg-center align-items-lg-center mb-3"
             style="width: 100%;margin: 0px;margin-bottom: 0px;">
             <label class="form-label text-start labels">Fornecedor:
-                <select class="sel" style="width: 100%;height: 30px;text-align:center" required name="fornecedor_id">
+                <select class="sel w-100" required name="fornecedor_id">
                     <option hidden selected value="">SELECIONE</option>
                     @foreach ($fornecedor as $dado)
                         <option value="{{ $dado->id }}">{{ $dado->name }} - {{ $dado->cpf_cnpj }}
@@ -23,7 +23,7 @@
                 </select>
             </label>
             <label class="form-label text-start labels">Produto:
-                <select class="sel" style="width: 100%;height: 30px;text-align:center" required name="produto_id">
+                <select class="sel w-100" required name="produto_id">
                     <option hidden selected value="">SELECIONE</option>
                     @foreach ($produto as $faz)
                         <option value="{{ $faz->id }}">{{ $faz->name }}

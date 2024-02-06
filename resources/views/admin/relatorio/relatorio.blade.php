@@ -11,7 +11,7 @@
             </h1>
             <label style="display:{{ Auth::user()->admin == null ? 'none' : null }} ">
                 Fazendas:
-                <select type="text" class="sel" name="fazenda_id">
+                <select type="text" class="sel w-100" name="fazenda_id">
                     <option selected value="%">TODAS</option>
                     @foreach ($fazenda as $dados)
                         <option value="{{ $dados->id }}">{{ $dados->name }}
@@ -21,7 +21,7 @@
             </label>
             {{-- fornecedores --}}
             <label style="">Fornecedor:
-                <select type="text" class="sel" name="fornecedor_id">
+                <select type="text" class="sel w-100" name="fornecedor_id">
                     <option selected value="%">TODOS</option>
                     @foreach ($fornecedor as $dados)
                         <option value="{{ $dados->id }}">{{ $dados->name }} - {{ $dados->cpf_cnpj }}
@@ -33,7 +33,7 @@
             </label>
             {{-- produtos --}}
             <label style="">Produto:
-                <select type="text" class="sel" name="produto_id">
+                <select type="text" class="sel w-100" name="produto_id">
                     <option selected value="%">TODOS</option>
                     @foreach ($produto as $dados)
                         <option value="{{ $dados->id }}">{{ $dados->name }}

@@ -13,7 +13,7 @@
 </head>
 
 <body id="page-top">
-    <div id="wrapper">
+    <div id="wrapper" class="w-100">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
             style="background:var(--layout-color)">
             <div class="container-fluid d-flex flex-column p-0">
@@ -77,3 +77,4 @@
 @stack('script_table')
 
 </html>
+<style>

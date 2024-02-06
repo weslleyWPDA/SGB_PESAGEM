@@ -34,16 +34,21 @@ class FornecedorAdmCont extends Controller
      */
     public function store(Request $r)
     {
-        $validated = $r->validate([
-            'name' => ['required'],
-            'cpf_cnpj' => ['required'],
-            'fazenda_id' => ['required'],
-
-        ]);
-        if (fornecedor::create($validated)) {
-            toast('Cadastrado!', 'success');
+        if (Auth::user()->admin == 1) {
+            toast('Administrador não Cadastra!', 'error');
             return redirect()->back();
-        };
+        } else {
+            $validated = $r->validate([
+                'name' => ['required'],
+                'cpf_cnpj' => ['required'],
+                'fazenda_id' => ['required'],
+
+            ]);
+            if (fornecedor::create($validated)) {
+                toast('Cadastrado!', 'success');
+                return redirect()->back();
+            };
+        }
     }
 
     /**
@@ -70,7 +75,6 @@ class FornecedorAdmCont extends Controller
         $validator = Validator::make($r->all(), [
             'name' => ['required'],
             'cpf_cnpj' => ['required'],
-            'fazenda_id' => ['required'],
         ]);
 
         if ($validator->fails()) {
@@ -81,7 +85,6 @@ class FornecedorAdmCont extends Controller
             if (fornecedor::where('id', $id)->update([
                 'name' => $r->name,
                 'cpf_cnpj' => $r->cpf_cnpj,
-                'fazenda_id' => $r->fazenda_id,
             ])) {
                 toast('Editado com Sucesso!', 'success');
                 return redirect()->back();

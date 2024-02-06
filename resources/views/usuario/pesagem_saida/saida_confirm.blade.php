@@ -77,28 +77,27 @@
                 <a href='{{ route('pesagem.index') }}' type="button" class="btn btn-danger btns botoes">CANCELAR</a>
             </div>
         </form>
-        <style>
-            .texto {
-                font-size: 13px;
-                color: white;
-                font-weight: 700;
-                text-decoration: underline
-            }
+        @push('css')
+            <style>
+                .texto {
+                    font-size: 13px;
+                    color: white;
+                    font-weight: 700;
+                    text-decoration: underline
+                }
 
-            .form-label.text-start {
-                font-size: 13px !important;
-            }
+                .form-label.text-start {
+                    font-size: 13px !important;
+                }
 
-            .form-control {
-                border-radius: 0px
-            }
+                .form-control {
+                    border-radius: 0px
+                }
 
-            input {
-                height: 30px !important;
-            }
-        </style>
-        @push('script')
-            <x-botoes.js-textoUpper />
+                input {
+                    height: 30px !important;
+                }
+            </style>
         @endpush
     </body>
 </x-layouts.layouts>

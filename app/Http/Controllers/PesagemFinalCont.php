@@ -57,15 +57,20 @@ class PesagemFinalCont extends Controller
      */
     public function update(Request $r, string $id)
     {
-        $te = pesagem::where('id', 'like', $id)->first();
-        if (pesagem::where('id', $id)->update([
-            'peso_saida' => $r->peso_saida,
-            'obs' => $r->observacao,
-            'data_saida' => $te->data_saida == null ? $r->data_saida : $te->data_saida,
-        ])) {
-            toast('Saída Realizada!', 'success');
-            return redirect()->route('pesagem.show', $id);
-        };
+        if (Auth::user()->admin == 1) {
+            toast('Administrador não Registra!', 'error');
+            return redirect()->back();
+        } else {
+            $te = pesagem::where('id', 'like', $id)->first();
+            if (pesagem::where('id', $id)->update([
+                'peso_saida' => $r->peso_saida,
+                'obs' => $r->observacao,
+                'data_saida' => $te->data_saida == null ? $r->data_saida : $te->data_saida,
+            ])) {
+                toast('Saída Realizada!', 'success');
+                return redirect()->route('pesagem.show', $id);
+            };
+        }
     }
 
     /**
