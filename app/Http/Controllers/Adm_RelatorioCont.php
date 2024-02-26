@@ -9,7 +9,6 @@ use App\Models\pesagem;
 use App\Models\produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class Adm_RelatorioCont extends Controller
 {

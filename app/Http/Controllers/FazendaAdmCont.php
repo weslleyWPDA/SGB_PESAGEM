@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Fazenda;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class FazendaAdmCont extends Controller
@@ -32,7 +31,7 @@ class FazendaAdmCont extends Controller
      */
     public function store(Request $r)
     {
-        $validated = $r->validate([
+        $validator = $r->validate([
             'name' => Rule::unique('fazendas')->whereNull('delete'),
             'cep' => 'required',
             'proprietario' => 'required',
@@ -42,7 +41,7 @@ class FazendaAdmCont extends Controller
         ], [
             "name.unique" => "Fazenda ja existente!",
         ]);
-        if (Fazenda::create($validated)) {
+        if (Fazenda::create($validator)) {
             toast('Cadastrado!', 'success');
             return redirect()->route('fazendas.index');
         };
@@ -73,7 +72,7 @@ class FazendaAdmCont extends Controller
      */
     public function update(Request $r, string $id)
     {
-        $validator = Validator::make($r->all(), [
+        $validator = $r->validate([
             'name' => Rule::unique('fazendas')->whereNull('delete')->ignore($id),
             'proprietario' => 'required',
             'zona' => 'required',
@@ -83,25 +82,19 @@ class FazendaAdmCont extends Controller
             "name.unique" => "Fazenda ja existente!",
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->route('fazendas.index')
-                ->withErrors($validator)
-                ->withInput();
+        if (Fazenda::where('id', $id)->update([
+            'name' => $r->name,
+            'proprietario' => $r->proprietario,
+            'zona' => $r->zona,
+            'cidade' => $r->cidade,
+            'cep' => $r->cep,
+        ])) {
+            toast('Editado com Sucesso!', 'success');
+            return redirect()->route('fazendas.index');
         } else {
-            if (Fazenda::where('id', $id)->update([
-                'name' => $r->name,
-                'proprietario' => $r->proprietario,
-                'zona' => $r->zona,
-                'cidade' => $r->cidade,
-                'cep' => $r->cep,
-            ])) {
-                toast('Editado com Sucesso!', 'success');
-                return redirect()->route('fazendas.index');
-            } else {
-                toast('Erro ao Editar!', 'error');
-                return redirect()->route('fazendas.index');
-            };
-        }
+            toast('Erro ao Editar!', 'error');
+            return redirect()->route('fazendas.index');
+        };
     }
 
     /**

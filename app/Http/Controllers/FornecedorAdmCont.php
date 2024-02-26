@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\fornecedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
 class FornecedorAdmCont extends Controller
 {
@@ -72,27 +71,21 @@ class FornecedorAdmCont extends Controller
      */
     public function update(Request $r, string $id)
     {
-        $validator = Validator::make($r->all(), [
+        $validator = $r->validate([
             'name' => ['required'],
             'cpf_cnpj' => ['required'],
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
+        if (fornecedor::where('id', $id)->update([
+            'name' => $r->name,
+            'cpf_cnpj' => $r->cpf_cnpj,
+        ])) {
+            toast('Editado com Sucesso!', 'success');
+            return redirect()->back();
         } else {
-            if (fornecedor::where('id', $id)->update([
-                'name' => $r->name,
-                'cpf_cnpj' => $r->cpf_cnpj,
-            ])) {
-                toast('Editado com Sucesso!', 'success');
-                return redirect()->back();
-            } else {
-                toast('Erro ao Editar!', 'error');
-                return redirect()->back();
-            };
-        }
+            toast('Erro ao Editar!', 'error');
+            return redirect()->back();
+        };
     }
 
     /**

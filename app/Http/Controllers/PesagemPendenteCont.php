@@ -117,8 +117,8 @@ class PesagemPendenteCont extends Controller
      */
     public function destroy(string $id)
     {
-        pesagem::where('id', $id)->update('delete', 1);
-        toast('Deletado com Sucesso!', 'error');
-        return redirect()->back();
+        // pesagem::where('id', $id)->update('delete', 1);
+        // toast('Deletado com Sucesso!', 'error');
+        // return redirect()->back();
     }
 }

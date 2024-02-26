@@ -8,7 +8,7 @@ use App\Models\produto;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-
+use Yajra\DataTables\Facades\DataTables;
 
 class ProdutosAdmCont extends Controller
 {
@@ -71,27 +71,20 @@ class ProdutosAdmCont extends Controller
      */
     public function update(Request $r, string $id)
     {
-        $validator = Validator::make($r->all(), [
+        $validated = $r->validate([
             'name' => Rule::unique('produtos')->whereNull('delete')->ignore($id),
         ], [
             "name.unique" => "Produto já existente!",
         ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
+        if (produto::where('id', $id)->update([
+            'name' => $r->name,
+        ])) {
+            toast('Editado com Sucesso!', 'success');
+            return redirect()->back();
         } else {
-            if (produto::where('id', $id)->update([
-                'name' => $r->name,
-            ])) {
-                toast('Editado com Sucesso!', 'success');
-                return redirect()->back();
-            } else {
-                toast('Erro ao Editar!', 'error');
-                return redirect()->back();
-            };
-        }
+            toast('Erro ao Editar!', 'error');
+            return redirect()->back();
+        };
     }
 
     /**
